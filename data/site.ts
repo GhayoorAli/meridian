@@ -25,7 +25,7 @@ export const offices = [
     address: "14 River Walk, London SE1 2HB",
     phone: "+44 20 7946 0180",
     image:
-      "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1600&q=80",
+      "/images/photo-1513635269975-59663e0ac1ad.jpg",
   },
   {
     city: "Edinburgh",
@@ -35,7 +35,7 @@ export const offices = [
     address: "16 Harbour Street, Edinburgh EH6 6JJ",
     phone: "+44 131 555 2140",
     image:
-      "https://images.unsplash.com/photo-1506377247590-0fd03317396c?auto=format&fit=crop&w=1600&q=80",
+      "/images/photo-1506377247590-0fd03317396c.jpg",
   },
   {
     city: "Melbourne",
@@ -45,7 +45,7 @@ export const offices = [
     address: "181 Grove Lane, Melbourne VIC 3000",
     phone: "+61 3 8610 4402",
     image:
-      "https://images.unsplash.com/photo-1514395466468-5ce0ac32e883?auto=format&fit=crop&w=1600&q=80",
+      "/images/photo-1514395466468-5ce0ac32e883.jpg",
   },
 ];
 

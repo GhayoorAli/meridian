@@ -72,7 +72,9 @@ Edit `data/site.ts`, `data/projects.ts`, `data/studio.ts`, and `data/journal.ts`
 
 ## Images
 
-Photographs are loaded from [Unsplash](https://unsplash.com). Swap the URLs in the data files, or put files in `public/` and point the `image` fields at those paths.
+All photographs live in `public/images/` and are served from the app. They are not loaded from the internet at runtime.
+
+To change a photo, replace the file in `public/images/` or point the `image` field in `data/` at another local path such as `/images/your-file.jpg`.
 
 ## License
 

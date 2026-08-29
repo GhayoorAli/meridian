@@ -21,7 +21,7 @@ export const articles: Article[] = [
     author: "Elena Carter",
     role: "Founding Partner",
     image:
-      "https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1474044159687-1ee9f3a51722.jpg",
     tags: ["Climate", "Method"],
     body: [
       "We still draw buildings as if air were free and shade were decoration. In London last July the pavement at 16:00 was 61 C. That is not a weather anecdote. It is a specification failure.",
@@ -39,7 +39,7 @@ export const articles: Article[] = [
     author: "Sarah Hall",
     role: "Partner, Edinburgh",
     image:
-      "https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1504893524553-b855bce32c67.jpg",
     tags: ["Survey", "Scotland"],
     body: [
       "The 2018 survey line at Orkney is already a fiction. We keep it on the sheet, in a pale ink, as a ghost. The new line is measured every March and drawn in a heavier hand.",
@@ -57,7 +57,7 @@ export const articles: Article[] = [
     author: "Elena Carter",
     role: "Founding Partner",
     image:
-      "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1513635269975-59663e0ac1ad.jpg",
     tags: ["Civic", "London"],
     body: [
       "A plane tree is a piece of civic infrastructure with a fifty-year payback. A cafe awning is a private claim on the same air. London is confusing the two.",
@@ -74,7 +74,7 @@ export const articles: Article[] = [
     author: "James Morrow",
     role: "Partner, Melbourne",
     image:
-      "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1418065460487-3e41a6c84dc5.jpg",
     tags: ["Landscape", "England"],
     body: [
       "We spent November on our knees in the Lake District, naming mosses that had colonized a collapsed retaining wall. The wall was a failure. The moss was a complete civilization.",
@@ -91,7 +91,7 @@ export const articles: Article[] = [
     author: "Martha Vale",
     role: "Associate, Light",
     image:
-      "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1514565131-fce0801e5785.jpg",
     tags: ["Light", "Research"],
     body: [
       "The average European street has become a corridor of glare. We light for insurance, not for faces. The result is that people look worse, sleep worse, and still do not feel safe.",
@@ -108,7 +108,7 @@ export const articles: Article[] = [
     author: "Daniel Brooks",
     role: "Associate, Research",
     image:
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1600210492486-724fe5c67fb0.jpg",
     tags: ["History", "Climate"],
     body: [
       "The comfort band was written for offices in the American Midwest and then sold to the planet as biology. It is neither biology nor polite.",

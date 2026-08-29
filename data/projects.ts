@@ -49,11 +49,11 @@ export const projects: Project[] = [
       { role: "Photography", name: "Aaron Magee" },
     ],
     image:
-      "https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=2000&q=80",
+      "/images/photo-1504893524553-b855bce32c67.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1476514525535-07fb3b4ae5f1.jpg",
+      "/images/photo-1469474968028-56623f02e42e.jpg",
+      "/images/photo-1418065460487-3e41a6c84dc5.jpg",
     ],
     featured: true,
   },
@@ -84,11 +84,11 @@ export const projects: Project[] = [
       { role: "Joinery", name: "Wind Workshop" },
     ],
     image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80",
+      "/images/photo-1600585154340-be6161a56a0c.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1600210492486-724fe5c67fb0.jpg",
+      "/images/photo-1600607687939-ce8a6c25118c.jpg",
+      "/images/photo-1600596542815-ffad4c1539a9.jpg",
     ],
     featured: true,
   },
@@ -119,11 +119,11 @@ export const projects: Project[] = [
       { role: "Joinery", name: "North Woodworks" },
     ],
     image:
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=2000&q=80",
+      "/images/photo-1493976040374-85c8e12f0c0e.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1524413840807-0c3cb6fa808d.jpg",
+      "/images/photo-1470071459604-3b5ec3a7fe05.jpg",
+      "/images/photo-1418065460487-3e41a6c84dc5.jpg",
     ],
     featured: true,
   },
@@ -154,11 +154,11 @@ export const projects: Project[] = [
       { role: "Civic brief", name: "Bath Town Council" },
     ],
     image:
-      "https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?auto=format&fit=crop&w=2000&q=80",
+      "/images/photo-1474044159687-1ee9f3a51722.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1511818966892-05be0258ea0b?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1449155997615-d74606d3d509?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1501785888041-af3ef285b470.jpg",
+      "/images/photo-1511818966892-05be0258ea0b.jpg",
+      "/images/photo-1449155997615-d74606d3d509.jpg",
     ],
   },
   {
@@ -188,11 +188,11 @@ export const projects: Project[] = [
       { role: "Water study", name: "National Water Lab" },
     ],
     image:
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2000&q=80",
+      "/images/photo-1487958449943-2429e8be8625.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1518005020951-eccb49441edd?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1518005020951-eccb49441edd.jpg",
+      "/images/photo-1555881400-74d7acaacd8b.jpg",
+      "/images/photo-1545324418-cc1a3fa10c00.jpg",
     ],
     featured: true,
   },
@@ -223,11 +223,11 @@ export const projects: Project[] = [
       { role: "Prefabrication", name: "Clara Timber" },
     ],
     image:
-      "https://images.unsplash.com/photo-1511818966892-05be0258ea0b?auto=format&fit=crop&w=2000&q=80",
+      "/images/photo-1511818966892-05be0258ea0b.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1449155997615-d74606d3d509?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1449155997615-d74606d3d509.jpg",
+      "/images/photo-1600210492486-724fe5c67fb0.jpg",
+      "/images/photo-1501785888041-af3ef285b470.jpg",
     ],
   },
   {
@@ -257,11 +257,11 @@ export const projects: Project[] = [
       { role: "Paper", name: "Valley Paper" },
     ],
     image:
-      "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=2000&q=80",
+      "/images/photo-1524413840807-0c3cb6fa808d.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1493976040374-85c8e12f0c0e.jpg",
+      "/images/photo-1523906834658-6e24ef2386f9.jpg",
+      "/images/photo-1600210492486-724fe5c67fb0.jpg",
     ],
   },
   {
@@ -291,11 +291,11 @@ export const projects: Project[] = [
       { role: "Fabrication", name: "Island Fabrication" },
     ],
     image:
-      "https://images.unsplash.com/photo-1433838552652-f9a46b332c40?auto=format&fit=crop&w=2000&q=80",
+      "/images/photo-1433838552652-f9a46b332c40.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1800&q=80",
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1800&q=80",
+      "/images/photo-1469474968028-56623f02e42e.jpg",
+      "/images/photo-1476514525535-07fb3b4ae5f1.jpg",
+      "/images/photo-1501785888041-af3ef285b470.jpg",
     ],
   },
 ];

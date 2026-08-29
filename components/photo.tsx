@@ -1,11 +1,9 @@
-import { photoUrl } from "@/lib/photo-url";
 import { cn } from "@/lib/utils";
 
 export function Photo({
   src,
   alt,
   className,
-  width = 800,
   eager = false,
   fill = false,
 }: {
@@ -17,10 +15,9 @@ export function Photo({
   fill?: boolean;
 }) {
   return (
-    // Native img so pages paint immediately; Unsplash CDN serves the file.
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={photoUrl(src, width)}
+      src={src}
       alt={alt}
       loading={eager ? "eager" : "lazy"}
       decoding="async"
