@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Meridian
 
-## Getting Started
+A Next.js theme for a spatial research studio. Dark editorial layout, filled project and journal pages, and motion-led UI for architecture and design portfolios.
 
-First, run the development server:
+Meridian is a fictional practice founded in London in 2014, with field stations in Edinburgh and Melbourne. The copy, projects, team, and essays are already in place so the theme can be previewed as a finished site.
+
+## Preview
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+For production speed (pre-built pages, no compile-on-click):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Stack
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Framer Motion
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Route | Description |
+| --- | --- |
+| `/` | Home: hero, manifesto, selected work, capabilities, method, offices, journal, awards |
+| `/work` | Project archive with type filters |
+| `/work/[slug]` | Case study (challenge, approach, outcome, gallery, credits) |
+| `/studio` | Practice, people, values, method |
+| `/journal` | Essay index |
+| `/journal/[slug]` | Article |
+| `/contact` | Brief form and three offices |
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Custom cursor and magnetic buttons
+- Sticky header that gains a dark bar on scroll
+- Hover image swap on the project list
+- Expanding office panels and accordion capabilities
+- Live clocks for London, Edinburgh, and Melbourne
+- Route loading state on navigation
+- Sample data for 8 projects, 6 essays, 8 people, awards, and clients
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project structure
+
+```
+app/            Routes and layouts
+components/     Navigation, footer, motion UI, home sections
+data/           Site, projects, studio, and journal content
+lib/            Helpers and image URLs
+```
+
+Edit `data/site.ts`, `data/projects.ts`, `data/studio.ts`, and `data/journal.ts` to replace the sample studio with your own.
+
+## Scripts
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | ESLint |
+
+## Images
+
+Photographs are loaded from [Unsplash](https://unsplash.com). Swap the URLs in the data files, or put files in `public/` and point the `image` fields at those paths.
+
+## License
+
+Private theme. Add a license file before you publish the repository if you want others to reuse it.
