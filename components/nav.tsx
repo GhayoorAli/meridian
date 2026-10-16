@@ -4,10 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { navLinks, offices, site } from "@/data/site";
-import { CityClock } from "@/components/clock";
+import { navLinks, site } from "@/data/site";
 import { Logo } from "@/components/logo";
-import { Roll } from "@/components/ui";
+import { Button, Roll } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
 // Pages that open on a full-bleed photograph; the bar sits transparent over it until scrolled past.
@@ -52,32 +51,44 @@ export function Nav() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-[background-color,color,transform] duration-300",
-          light ? "bg-transparent text-white" : "bg-bone text-ink",
+          "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,color,transform,border-color] duration-300",
+          light ? "border-transparent bg-transparent text-white" : "border-line bg-bone/95 text-ink backdrop-blur-md",
           hidden && !open ? "-translate-y-full" : "translate-y-0",
         )}
       >
-        <div className="gutter grid h-[84px] grid-cols-[1fr_auto] items-center md:h-[99px] md:grid-cols-[1fr_auto_1fr]">
+        <div className="gutter grid h-[76px] grid-cols-[1fr_auto] items-center md:h-[88px] md:grid-cols-[1fr_auto_1fr]">
           <Link href="/" aria-label={`${site.name} home`} className="w-fit">
             <Logo />
           </Link>
 
-          <nav className="hidden items-center gap-[54px] text-[14px] md:flex">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={pathname.startsWith(link.href) ? "page" : undefined}
-                className="roll-host"
-              >
-                <Roll>{link.label}</Roll>
-              </Link>
-            ))}
+          <nav className="hidden items-center gap-12 text-[17px] md:flex">
+            {navLinks.map((link) => {
+              const current = pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={current ? "page" : undefined}
+                  className="roll-host relative"
+                >
+                  <Roll>{link.label}</Roll>
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "absolute -bottom-2 left-0 h-px bg-current transition-[width] duration-500",
+                      current ? "w-full" : "w-0",
+                    )}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
-          <div className="flex items-center justify-end gap-6 text-[14px] tracking-[0.5px]">
-            <span className="hidden opacity-70 md:inline">
-              <CityClock timeZone={offices[0].timezone} label="LDN" />
+          <div className="flex items-center justify-end gap-6 text-[17px]">
+            <span className="hidden md:block">
+              <Button href="/contact" size="sm" tone={light ? "light" : "ink"}>
+                Start a project
+              </Button>
             </span>
             <button
               type="button"
@@ -94,7 +105,7 @@ export function Nav() {
       <AnimatePresence>
         {open ? (
           <motion.div
-            className="gutter fixed inset-0 z-40 flex flex-col justify-between bg-ink pt-32 pb-10 text-cream"
+            className="gutter fixed inset-0 z-40 flex flex-col justify-between bg-charcoal-deep pt-32 pb-10 text-cream"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
@@ -115,13 +126,13 @@ export function Nav() {
                 </li>
               ))}
             </ul>
-            <div className="space-y-1 font-light text-[16px]">
-              {offices.map((office) => (
-                <p key={office.city} className="flex justify-between border-t border-line-light pt-2">
-                  <span>{office.city}</span>
-                  <CityClock timeZone={office.timezone} />
-                </p>
-              ))}
+            <div className="space-y-6">
+              <Button href="/contact" tone="light" className="w-full">
+                Start a project
+              </Button>
+              <a href={`mailto:${site.email}`} className="block text-[18px] text-cream/85">
+                {site.email}
+              </a>
             </div>
           </motion.div>
         ) : null}

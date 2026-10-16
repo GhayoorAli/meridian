@@ -1,12 +1,12 @@
 import { JournalList } from "@/components/journal-list";
-import { ArrowLink, Separator, SplitTitle } from "@/components/ui";
+import { ArrowLink, Eyebrow, SplitTitle } from "@/components/ui";
 import { articles } from "@/data/journal";
 
 export function JournalPreview() {
   return (
-    <section className="gutter pt-[60px] pb-[90px]">
-      <Separator />
-      <SplitTitle left="Journal" className="mt-6" />
+    <section className="gutter border-t border-line pt-[120px] pb-[140px] lg:pt-[160px]">
+      <Eyebrow>Writing from the studio</Eyebrow>
+      <SplitTitle left="Journal" className="mt-8" />
       <div className="mt-6 flex justify-end">
         <ArrowLink href="/journal">Explore all essays</ArrowLink>
       </div>

@@ -47,12 +47,73 @@ export function ArrowLink({
   className?: string;
 }) {
   return (
-    <Link href={href} className={cn("roll-host inline-flex text-[14px]", className)}>
+    <Link href={href} className={cn("roll-host inline-flex text-[18px]", className)}>
       <Roll>
         {children}
         <ArrowDownRight />
       </Roll>
     </Link>
+  );
+}
+
+/** The primary action: a solid, square-edged button. `tone` picks the colourway for its ground. */
+export function Button({
+  href,
+  children,
+  tone = "ink",
+  size = "md",
+  className,
+}: {
+  href: string;
+  children: React.ReactNode;
+  tone?: "ink" | "light" | "bronze";
+  size?: "sm" | "md";
+  className?: string;
+}) {
+  const tones = {
+    ink: "bg-ink text-bone hover:bg-bronze",
+    light: "bg-bone text-ink hover:bg-bronze-soft",
+    bronze: "bg-bronze text-bone hover:bg-ink",
+  };
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "roll-host inline-flex items-center justify-center transition-colors duration-300",
+        size === "sm" ? "h-11 px-5 text-[16px]" : "h-14 px-7 text-[18px]",
+        tones[tone],
+        className,
+      )}
+    >
+      <Roll>
+        {children}
+        <ArrowDownRight />
+      </Roll>
+    </Link>
+  );
+}
+
+/** Small label that opens a section: a short rule and a plain description of what follows. */
+export function Eyebrow({
+  children,
+  className,
+  tone = "dark",
+}: {
+  children: React.ReactNode;
+  className?: string;
+  tone?: "dark" | "light";
+}) {
+  return (
+    <p
+      className={cn(
+        "flex items-center gap-3 text-[16px] tracking-[0.02em]",
+        tone === "light" ? "text-bone/80" : "text-stone",
+        className,
+      )}
+    >
+      <span aria-hidden className={cn("h-px w-8", tone === "light" ? "bg-bronze-soft" : "bg-bronze")} />
+      {children}
+    </p>
   );
 }
 
@@ -81,12 +142,12 @@ export function SplitTitle({
     <Tag
       ref={ref}
       className={cn(
-        "flex justify-between gap-6 font-ex text-[clamp(38px,5vw,72px)] leading-none uppercase",
+        "flex flex-col gap-1 font-ex text-[clamp(32px,5vw,72px)] leading-none uppercase sm:flex-row sm:justify-between sm:gap-6",
         className,
       )}
     >
       {words.map((word, index) => (
-        <span key={word} className="block overflow-hidden pb-[0.04em]">
+        <span key={word} className="block overflow-hidden pb-[0.04em] [&:nth-child(2)]:self-end sm:[&:nth-child(2)]:self-auto">
           <motion.span className="block" style={{ x: index === 0 ? fromLeft : fromRight }}>
             {word}
           </motion.span>

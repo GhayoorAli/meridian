@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Photo } from "@/components/photo";
-import { ArrowLink, FadeIn, Separator, SplitTitle, Unmask } from "@/components/ui";
+import { ArrowLink, Eyebrow, FadeIn, SplitTitle, Unmask } from "@/components/ui";
 import { projects, type Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
@@ -20,14 +20,9 @@ export function ProjectCard({
   return (
     <FadeIn className={className}>
       <Link href={`/work/${project.slug}`} className="card block">
-        <div className="mb-5 flex h-[18px] items-center justify-between gap-4 text-[14px] md:text-[18px]">
-          <span className="card-meta min-w-0 flex-1 truncate">{project.title}</span>
-          <span className="flex items-center font-serif">
-            <span className="card-paren card-paren-open pr-3 text-[18px] md:text-[24px]">(</span>
-            <span className="card-more px-1 whitespace-nowrap">View more</span>
-            <span className="card-paren card-paren-close pl-3 text-[18px] md:text-[24px]">)</span>
-          </span>
-          <span className="card-meta flex-1 text-right">{project.year}</span>
+        <div className="mb-4 flex items-baseline justify-between gap-4 text-[18px] md:text-[20px]">
+          <span className="card-meta min-w-0 truncate">{project.title}</span>
+          <span className="card-meta shrink-0">{project.year}</span>
         </div>
 
         <Unmask className={cn("w-full bg-ink", aspect)}>
@@ -37,10 +32,10 @@ export function ProjectCard({
           <div className="card-hover absolute inset-0">
             <Photo src={project.gallery[0]} alt="" fill />
           </div>
-          <span className="card-label card-label-top absolute top-5 left-1/2 z-10 text-[14px] whitespace-nowrap text-[#faf9f6] md:text-[18px]">
+          <span className="card-label card-label-top absolute top-5 left-1/2 z-10 text-[16px] whitespace-nowrap text-[#faf9f6] md:text-[20px]">
             {project.type}
           </span>
-          <span className="card-label card-label-bottom absolute bottom-5 left-1/2 z-10 text-[14px] whitespace-nowrap text-[#faf9f6] md:text-[18px]">
+          <span className="card-label card-label-bottom absolute bottom-5 left-1/2 z-10 text-[16px] whitespace-nowrap text-[#faf9f6] md:text-[20px]">
             {project.location}, {project.country}
           </span>
         </Unmask>
@@ -65,14 +60,17 @@ export function Works() {
   }
 
   return (
-    <section className="gutter pt-[60px]">
-      <Separator />
-      <SplitTitle left="Projects" right="Featured" className="mt-6" />
-      <div className="mt-8 flex justify-end">
+    <section className="gutter pt-[120px] pb-[40px] lg:pt-[160px]">
+      <Eyebrow>Selected projects</Eyebrow>
+      <SplitTitle left="Built" right="Work" className="mt-8" />
+      <div className="mt-8 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <p className="max-w-[520px] text-[18px] leading-[1.6] text-stone">
+          Houses, schools, halls and archives completed over the last six years.
+        </p>
         <ArrowLink href="/work">View all projects</ArrowLink>
       </div>
 
-      <div className="mt-6 space-y-[120px]">
+      <div className="mt-16 space-y-[120px]">
         {rows.map((row) =>
           row.length === 2 ? (
             <div key={row[0].slug} className="grid gap-[120px] md:grid-cols-2 md:gap-[92px]">

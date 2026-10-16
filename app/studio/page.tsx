@@ -1,5 +1,5 @@
 import { Photo } from "@/components/photo";
-import { FadeIn, Paren, SplitTitle, Unmask } from "@/components/ui";
+import { FadeIn, SplitTitle, Unmask } from "@/components/ui";
 import { manifesto, team, values } from "@/data/studio";
 import { process, stats, studioImages } from "@/data/site";
 
@@ -16,16 +16,16 @@ export default function StudioPage() {
         <div className="mt-14 grid gap-12 border-t border-line pt-14 md:grid-cols-[1fr_545px] md:gap-[80px]">
           <div className="flex flex-col justify-between gap-16">
             <FadeIn>
-              <p className="max-w-[640px] font-light text-[24px] leading-[1.15]">{manifesto.lead}</p>
-              <p className="mt-10 max-w-[340px] text-justify font-light text-[16px] leading-[1.4]">
+              <p className="max-w-[640px] text-[24px] leading-[1.15]">{manifesto.lead}</p>
+              <p className="mt-10 max-w-[400px] text-justify text-[18px] leading-[1.4]">
                 {manifesto.body}
               </p>
             </FadeIn>
-            <dl className="grid grid-cols-2 gap-x-10 gap-y-8 md:grid-cols-4">
+            <dl className="grid grid-cols-3 gap-x-10 gap-y-8">
               {stats.map((stat) => (
                 <div key={stat.label}>
                   <dt className="font-serif text-[48px] leading-[0.87]">{stat.value}</dt>
-                  <dd className="mt-3 border-t border-line pt-2 font-light text-[14px]">{stat.label}</dd>
+                  <dd className="mt-3 border-t border-line pt-2 text-[16px]">{stat.label}</dd>
                 </div>
               ))}
             </dl>
@@ -49,12 +49,12 @@ export default function StudioPage() {
                   className="grayscale transition-[filter] duration-700 group-hover:grayscale-0"
                 />
               </div>
-              <div className="mt-3 flex items-baseline justify-between text-[18px]">
+              <div className="mt-3 flex items-baseline justify-between text-[20px]">
                 <span>{person.name}</span>
-                <span className="font-light text-[14px] text-stone">{person.station}</span>
+                <span className="text-[16px] text-stone">{person.station}</span>
               </div>
-              <p className="font-light text-[14px] text-stone">{person.role}</p>
-              <p className="mt-3 text-justify font-light text-[14px] leading-[1.4]">{person.bio}</p>
+              <p className="text-[16px] text-stone">{person.role}</p>
+              <p className="mt-3 text-justify text-[16px] leading-[1.4]">{person.bio}</p>
             </FadeIn>
           ))}
         </div>
@@ -68,7 +68,7 @@ export default function StudioPage() {
               <span className="font-serif text-[48px] leading-[0.87]">{String(index + 1).padStart(2, "0")}</span>
               <div>
                 <h3 className="text-[24px] leading-[0.9] uppercase">{value.title}</h3>
-                <p className="mt-4 max-w-[420px] text-justify font-light text-[16px] leading-[1.4]">{value.copy}</p>
+                <p className="mt-4 max-w-[420px] text-justify text-[18px] leading-[1.4]">{value.copy}</p>
               </div>
             </FadeIn>
           ))}
@@ -80,9 +80,9 @@ export default function StudioPage() {
         <ol className="mt-14 grid gap-10 border-t border-line pt-8 md:grid-cols-5 md:gap-6">
           {process.map((step) => (
             <li key={step.index}>
-              <Paren className="text-[16px]">{step.index}</Paren>
+              <span className="font-serif text-[32px] leading-none">{step.index}</span>
               <h3 className="mt-3 text-[20px] uppercase">{step.title}</h3>
-              <p className="mt-3 text-justify font-light text-[14px] leading-[1.4]">{step.copy}</p>
+              <p className="mt-3 text-justify text-[16px] leading-[1.4]">{step.copy}</p>
             </li>
           ))}
         </ol>

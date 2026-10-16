@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Photo } from "@/components/photo";
-import { FadeIn, Paren, Roll, SplitTitle, Unmask } from "@/components/ui";
+import { FadeIn, Roll, SplitTitle, Unmask } from "@/components/ui";
 import { getNextProject, getProject, projects } from "@/data/projects";
-import { formatIndex } from "@/lib/utils";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -24,7 +23,7 @@ export async function generateMetadata({
 }
 
 function Corners() {
-  const mark = "absolute text-[18px] leading-none font-light";
+  const mark = "absolute text-[20px] leading-none";
   return (
     <>
       <span className={`${mark} -top-3 -left-3`}>+</span>
@@ -44,7 +43,6 @@ export default async function ProjectPage({
   const project = getProject(slug);
   if (!project) notFound();
   const next = getNextProject(slug);
-  const number = formatIndex(projects.findIndex((item) => item.slug === slug) + 1);
   const [hero, ...rest] = [project.image, ...project.gallery];
 
   const facts = [
@@ -63,14 +61,10 @@ export default async function ProjectPage({
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="gutter relative flex h-svh flex-col justify-between pt-[110px] pb-8">
-          <div className="ml-auto flex max-w-[330px] gap-3">
-            <Paren className="shrink-0 text-[14px]">{number}</Paren>
-            <p className="text-justify font-light text-[16px] leading-[1.4]">...{project.excerpt}</p>
-          </div>
+        <div className="gutter relative flex h-svh flex-col justify-end pt-[110px] pb-8">
           <div>
             <h1 className="font-ex text-[clamp(44px,5vw,72px)] leading-none uppercase">{project.title}</h1>
-            <div className="mt-6 grid grid-cols-3 font-light text-[14px] md:text-[16px]">
+            <div className="mt-6 grid grid-cols-3 text-[16px] md:text-[18px]">
               <span>
                 {project.location}, {project.country}
               </span>
@@ -84,8 +78,8 @@ export default async function ProjectPage({
           <dl className="ml-auto max-w-[680px] space-y-14">
             {facts.map(([label, value]) => (
               <FadeIn key={label}>
-                <dt className="border-b border-white/60 pb-3 text-[16px]">{label}</dt>
-                <dd className="mt-6 ml-auto max-w-[340px] text-justify font-light text-[16px] leading-[1.4]">
+                <dt className="border-b border-white/60 pb-3 text-[18px]">{label}</dt>
+                <dd className="mt-6 ml-auto max-w-[400px] text-justify text-[18px] leading-[1.4]">
                   {value}
                 </dd>
               </FadeIn>
@@ -108,7 +102,7 @@ export default async function ProjectPage({
           </div>
         </div>
         <div className="flex flex-col justify-between gap-16">
-          <FadeIn className="ml-auto max-w-[380px] space-y-6 text-justify font-light text-[16px] leading-[1.4]">
+          <FadeIn className="ml-auto max-w-[380px] space-y-6 text-justify text-[18px] leading-[1.4]">
             <p>{project.challenge}</p>
             <p>{project.approach}</p>
           </FadeIn>
@@ -122,11 +116,11 @@ export default async function ProjectPage({
       </section>
 
       <section className="gutter grid gap-12 border-t border-line py-[80px] md:grid-cols-2">
-        <p className="max-w-[460px] text-justify font-light text-[16px] leading-[1.4]">{project.outcome}</p>
-        <ul className="grid grid-cols-2 gap-x-10 gap-y-6 text-[16px]">
+        <p className="max-w-[460px] text-justify text-[18px] leading-[1.4]">{project.outcome}</p>
+        <ul className="grid grid-cols-2 gap-x-10 gap-y-6 text-[18px]">
           {project.credits.map((credit) => (
             <li key={credit.role}>
-              <p className="font-light text-stone">{credit.role}</p>
+              <p className="text-stone">{credit.role}</p>
               <p className="mt-1">{credit.name}</p>
             </li>
           ))}
@@ -134,7 +128,7 @@ export default async function ProjectPage({
       </section>
 
       <Link href={`/work/${next.slug}`} className="roll-host gutter block border-t border-line pt-10 pb-[100px]">
-        <span className="mb-8 inline-flex text-[16px]">
+        <span className="mb-8 inline-flex text-[18px]">
           <Roll>Next project</Roll>
         </span>
         <SplitTitle left={next.title} />

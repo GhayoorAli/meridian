@@ -1,19 +1,11 @@
 import { cn } from "@/lib/utils";
 
-/** Split monogram: M / over R D, drawn in hairline type. */
+/** Wordmark: the studio name in the wide display cut, with a quiet descriptor beside it. */
 export function Logo({ className }: { className?: string }) {
   return (
-    <span
-      className={cn(
-        "grid grid-cols-2 gap-x-3 font-ex text-[30px] leading-[0.95] font-extralight",
-        className,
-      )}
-      aria-label="Meridian"
-    >
-      <span aria-hidden>M</span>
-      <span aria-hidden className="-ml-1">/</span>
-      <span aria-hidden>R</span>
-      <span aria-hidden>D</span>
+    <span className={cn("flex items-baseline gap-3", className)}>
+      <span className="font-ex text-[22px] leading-none tracking-[0.04em] uppercase md:text-[24px]">Meridian</span>
+      <span className="hidden text-[15px] leading-none opacity-70 xl:inline">Architecture &amp; interiors</span>
     </span>
   );
 }

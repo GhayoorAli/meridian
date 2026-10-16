@@ -1,37 +1,44 @@
 import { Photo } from "@/components/photo";
-import { ArrowLink, FadeIn, SplitTitle, Unmask } from "@/components/ui";
-import { offices, studioImages } from "@/data/site";
+import { ArrowLink, Eyebrow, FadeIn, Parallax } from "@/components/ui";
+import { stats, studioImages } from "@/data/site";
 import { manifesto } from "@/data/studio";
 
+/** Who the studio is, in one statement, with the three numbers a client asks first. */
 export function Studio() {
   return (
-    <section className="gutter grid gap-12 py-[60px] lg:min-h-svh lg:grid-cols-[735fr_545fr] lg:gap-[80px]">
-      <div className="flex flex-col">
-        <SplitTitle left="The" right="Studio" />
-        <div className="mt-6 flex justify-end">
-          <ArrowLink href="/studio">Get to know our studio</ArrowLink>
-        </div>
-
-        <FadeIn className="mt-16 max-w-[300px] space-y-12 text-justify font-light text-[16px] leading-[1.4]">
-          <p>
-            A spatial research studio designing architecture, landscape and light for a warming
-            planet.
-          </p>
-          <p>{manifesto.lead} Every drawing begins with the wind, the tide and the people who stay.</p>
+    <section className="gutter grid gap-14 py-[120px] lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:gap-[100px] lg:py-[160px]">
+      <div className="flex flex-col justify-between gap-16">
+        <FadeIn>
+          <Eyebrow>The studio</Eyebrow>
+          <h2 className="mt-8 max-w-[880px] text-[clamp(30px,3.4vw,52px)] leading-[1.12] tracking-[-0.02em]">
+            {manifesto.lead}
+          </h2>
+          <p className="mt-8 max-w-[560px] text-[18px] leading-[1.6] text-stone">{manifesto.body}</p>
+          <div className="mt-10">
+            <ArrowLink href="/studio">About the studio</ArrowLink>
+          </div>
         </FadeIn>
 
-        <ul className="mt-16 -ml-4 flex w-[calc(100%+1rem)] max-w-[404px] flex-col gap-2 font-light text-[16px] md:-ml-10 md:w-[404px]">
-          {offices.map((office) => (
-            <li key={office.city} className="border-b border-line pb-0.5 pl-[55%] md:pl-[312px]">
-              {office.city}
-            </li>
+        <dl className="grid grid-cols-3 border-t border-line">
+          {stats.map((stat, index) => (
+            <FadeIn
+              key={stat.label}
+              delay={index * 0.08}
+              className="border-line pt-6 pr-4 [&:not(:first-child)]:border-l [&:not(:first-child)]:pl-6"
+            >
+              <dt className="sr-only">{stat.label}</dt>
+              <dd>
+                <span className="block font-ex text-[clamp(40px,4.4vw,68px)] leading-none">{stat.value}</span>
+                <span className="mt-3 block text-[16px] text-stone md:text-[18px]">{stat.label}</span>
+              </dd>
+            </FadeIn>
           ))}
-        </ul>
+        </dl>
       </div>
 
-      <Unmask className="aspect-[545/700] w-full self-start lg:mt-[-6px]">
-        <Photo src={studioImages.home} alt="A study model on the studio table" fill className="grayscale" />
-      </Unmask>
+      <Parallax className="aspect-[4/5] w-full self-start bg-paper" amount={8}>
+        <Photo src={studioImages.page} alt="Drafting tables in the London studio" fill />
+      </Parallax>
     </section>
   );
 }

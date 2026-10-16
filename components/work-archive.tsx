@@ -14,7 +14,7 @@ export function WorkArchive() {
 
   return (
     <div className="mt-12 grid gap-10 md:grid-cols-[158px_1fr] md:gap-10">
-      <ul className="flex flex-wrap gap-x-6 gap-y-2 text-[18px] md:sticky md:top-[130px] md:flex-col md:self-start md:gap-y-3">
+      <ul className="flex flex-wrap gap-x-6 gap-y-2 text-[20px] md:sticky md:top-[130px] md:flex-col md:self-start md:gap-y-3">
         {projectTypes.map((item, index) => (
           <li key={item}>
             <button
@@ -22,7 +22,7 @@ export function WorkArchive() {
               onClick={() => setType(item)}
               className={cn(
                 "flex items-baseline gap-1.5 transition-colors duration-300",
-                type === item ? "text-ink" : "text-ink/35 hover:text-ink",
+                type === item ? "text-ink" : "text-ink/50 hover:text-ink",
               )}
             >
               <span className="font-serif">{formatIndex(index)}</span>

@@ -1,7 +1,7 @@
 export const manifesto = {
-  eyebrow: "Practice",
-  lead: "We design rooms that tell the truth about weather.",
-  body: "Meridian is a spatial research studio. We work where architecture, landscape, and light collapse into the same problem: how to stay on a warming planet without lying about it. The studio was founded in London in 2014 and now keeps field stations in Edinburgh and Melbourne — not as offices, but as instruments.",
+  eyebrow: "Studio",
+  lead: "We design buildings and interiors that are calm to use, honest about their materials, and made to last.",
+  body: "Meridian was founded in London in 2014 and now works from studios in London, Edinburgh and Melbourne. We take on a small number of projects at a time, from private houses to schools and cultural buildings, and the same partners lead each one from the first meeting to the day it opens.",
 };
 
 export const team = [
@@ -73,19 +73,19 @@ export const team = [
 
 export const values = [
   {
-    title: "Measure first",
-    copy: "No concept before a week on site. Wind, tide, soil, and the way people already use the place.",
+    title: "Listen first",
+    copy: "Every project starts with how you will use the building, not with a style. The brief is the most important drawing we make.",
   },
   {
-    title: "Make it maintainable",
-    copy: "A detail that cannot be repaired by a local crew is a vanity. We draw the maintenance as carefully as the opening.",
+    title: "Honest materials",
+    copy: "Timber, stone, brick and lime, chosen for how they age and detailed so they can be repaired.",
   },
   {
-    title: "Refuse the setpoint",
-    copy: "Comfort is seasonal. Buildings that pretend otherwise waste energy and insult the climate they sit in.",
+    title: "Designed for daily life",
+    copy: "Light, storage, warmth and quiet matter more than the photograph. We design for the hundredth visit, not the first.",
   },
   {
-    title: "Keep a field station",
-    copy: "The studio is not a single room in a capital. Research happens where the weather is least polite.",
+    title: "See it through",
+    copy: "The partner you meet at the start stays with the project on site and comes back after the first year.",
   },
 ];

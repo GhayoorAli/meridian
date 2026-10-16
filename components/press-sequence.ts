@@ -153,11 +153,11 @@ export function createSequence(parts: SequenceParts) {
   const build = () => {
     const stage = row.clientWidth;
     const rest = Math.max(0, (stage - 344) / 2);
-    const open = Math.max(288, (stage - 600) / 2);
+    const open = Math.max(340, (stage - 600) / 2);
     // The strip at full height: each 4:5 photograph is 416px wide at 520px tall, 16px apart.
     const count = gallery.children.length;
     const strip = count ? count * 416 + (count - 1) * 16 : 0;
-    const wide = Math.max(252, open) + (strip ? strip + 80 : 0);
+    const wide = Math.max(300, open) + (strip ? strip + 80 : 0);
     const overflow = Math.max(0, open + 520 + 80 + wide - stage);
     const read = Math.max(0.45, overflow / 780);
     const height = 526;
