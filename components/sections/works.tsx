@@ -20,7 +20,7 @@ export function ProjectCard({
   return (
     <FadeIn className={className}>
       <Link href={`/work/${project.slug}`} className="card block">
-        <div className="mb-4 flex items-baseline justify-between gap-4 text-[18px] md:text-[20px]">
+        <div className="mb-4 flex items-baseline justify-between gap-4 text-[1.125rem] md:text-[1.25rem]">
           <span className="card-meta min-w-0 truncate">{project.title}</span>
           <span className="card-meta shrink-0">{project.year}</span>
         </div>
@@ -32,10 +32,10 @@ export function ProjectCard({
           <div className="card-hover absolute inset-0">
             <Photo src={project.gallery[0]} alt="" fill />
           </div>
-          <span className="card-label card-label-top absolute top-5 left-1/2 z-10 text-[16px] whitespace-nowrap text-[#faf9f6] md:text-[20px]">
+          <span className="card-label card-label-top absolute top-5 left-1/2 z-10 text-[1rem] whitespace-nowrap text-[#faf9f6] md:text-[1.25rem]">
             {project.type}
           </span>
-          <span className="card-label card-label-bottom absolute bottom-5 left-1/2 z-10 text-[16px] whitespace-nowrap text-[#faf9f6] md:text-[20px]">
+          <span className="card-label card-label-bottom absolute bottom-5 left-1/2 z-10 text-[1rem] whitespace-nowrap text-[#faf9f6] md:text-[1.25rem]">
             {project.location}, {project.country}
           </span>
         </Unmask>
@@ -60,11 +60,11 @@ export function Works() {
   }
 
   return (
-    <section className="gutter pt-[120px] pb-[40px] lg:pt-[160px]">
+    <section className="gutter pt-[7.5rem] pb-[2.5rem] lg:pt-[10rem]">
       <Eyebrow>Selected projects</Eyebrow>
       <SplitTitle left="Built" right="Work" className="mt-8" />
       <div className="mt-8 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-        <p className="max-w-[520px] text-[18px] leading-[1.6] text-stone">
+        <p className="max-w-[32.5rem] text-[1.125rem] leading-[1.6] text-stone">
           Houses, schools, halls and archives completed over the last six years.
         </p>
         <ArrowLink href="/work">View all projects</ArrowLink>
@@ -73,9 +73,9 @@ export function Works() {
       <div className="mt-16 space-y-[120px]">
         {rows.map((row) =>
           row.length === 2 ? (
-            <div key={row[0].slug} className="grid gap-[120px] md:grid-cols-2 md:gap-[92px]">
+            <div key={row[0].slug} className="grid gap-[7.5rem] md:grid-cols-2 md:gap-[5.75rem]">
               <ProjectCard project={row[0]} aspect="aspect-[634/780]" />
-              <ProjectCard project={row[1]} aspect="aspect-[634/560]" className="md:mt-[130px]" />
+              <ProjectCard project={row[1]} aspect="aspect-[634/560]" className="md:mt-[8.125rem]" />
             </div>
           ) : (
             <ProjectCard key={row[0].slug} project={row[0]} aspect="aspect-[4/3] md:aspect-[1360/650]" />

@@ -1,6 +1,6 @@
 export function PageLoader() {
   return (
-    <main className="gutter min-h-svh pt-[120px]">
+    <main className="gutter min-h-svh pt-[7.5rem]">
       <div className="flex justify-between">
         <div className="h-[56px] w-40 animate-pulse bg-ink/10 md:w-56" />
         <div className="h-[56px] w-48 animate-pulse bg-ink/10 md:w-72" />

@@ -61,7 +61,7 @@ export function Nav() {
             <Logo />
           </Link>
 
-          <nav className="hidden items-center gap-12 text-[17px] md:flex">
+          <nav className="hidden items-center gap-12 text-[1.0625rem] md:flex">
             {navLinks.map((link) => {
               const current = pathname.startsWith(link.href);
               return (
@@ -84,7 +84,7 @@ export function Nav() {
             })}
           </nav>
 
-          <div className="flex items-center justify-end gap-6 text-[17px]">
+          <div className="flex items-center justify-end gap-6 text-[1.0625rem]">
             <span className="hidden md:block">
               <Button href="/contact" size="sm" tone={light ? "light" : "ink"}>
                 Start a project
@@ -119,7 +119,7 @@ export function Nav() {
                     animate={{ y: "0%" }}
                     transition={{ delay: 0.2 + index * 0.05, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
                   >
-                    <Link href={link.href} className="font-ex text-[32px] leading-none uppercase">
+                    <Link href={link.href} className="font-ex text-[2rem] leading-none uppercase">
                       {link.label}
                     </Link>
                   </motion.div>
@@ -130,7 +130,7 @@ export function Nav() {
               <Button href="/contact" tone="light" className="w-full">
                 Start a project
               </Button>
-              <a href={`mailto:${site.email}`} className="block text-[18px] text-cream/85">
+              <a href={`mailto:${site.email}`} className="block text-[1.125rem] text-cream/85">
                 {site.email}
               </a>
             </div>

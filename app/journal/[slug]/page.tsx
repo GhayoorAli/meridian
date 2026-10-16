@@ -31,18 +31,18 @@ export default async function ArticlePage({
 
   return (
     <main>
-      <article className="gutter pt-[120px] pb-[100px]">
-        <div className="grid grid-cols-3 border-b border-line pb-3 text-[16px] md:text-[18px]">
+      <article className="gutter pt-[7.5rem] pb-[6.25rem]">
+        <div className="grid grid-cols-3 border-b border-line pb-3 text-[1rem] md:text-[1.125rem]">
           <span>{article.tags.join(", ")}</span>
           <span className="text-center">{article.date}</span>
           <span className="text-right">{article.read}</span>
         </div>
-        <h1 className="mt-14 max-w-[1100px] font-ex text-[clamp(36px,4.4vw,64px)] leading-[1.02] uppercase">
+        <h1 className="mt-14 max-w-[68.75rem] font-ex text-[clamp(2.25rem,4.4vw,4rem)] leading-[1.02] uppercase">
           {article.title}
         </h1>
         <div className="mt-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <p className="max-w-[520px] font-serif text-[24px] leading-[1.15]">{article.dek}</p>
-          <p className="text-[16px]">
+          <p className="max-w-[32.5rem] font-serif text-[1.5rem] leading-[1.15]">{article.dek}</p>
+          <p className="text-[1rem]">
             {article.author} <span className="text-stone">— {article.role}</span>
           </p>
         </div>
@@ -51,20 +51,20 @@ export default async function ArticlePage({
           <Photo src={article.image} alt={article.title} eager fill />
         </Unmask>
 
-        <div className="mt-[90px] ml-auto max-w-[680px] space-y-7">
+        <div className="mt-[5.625rem] ml-auto max-w-[42.5rem] space-y-7">
           {article.body.map((paragraph) => (
-            <p key={paragraph} className="text-justify text-[20px] leading-[1.5]">
+            <p key={paragraph} className="text-justify text-[1.25rem] leading-[1.5]">
               {paragraph}
             </p>
           ))}
         </div>
       </article>
 
-      <Link href={`/journal/${next.slug}`} className="roll-host gutter block border-t border-line pt-10 pb-[100px]">
-        <span className="mb-8 inline-flex text-[18px]">
+      <Link href={`/journal/${next.slug}`} className="roll-host gutter block border-t border-line pt-10 pb-[6.25rem]">
+        <span className="mb-8 inline-flex text-[1.125rem]">
           <Roll>Next essay</Roll>
         </span>
-        <p className="max-w-[1100px] font-ex text-[clamp(28px,3.4vw,48px)] leading-[1.05] uppercase">
+        <p className="max-w-[68.75rem] font-ex text-[clamp(1.75rem,3.4vw,3rem)] leading-[1.05] uppercase">
           {next.title}
         </p>
       </Link>

@@ -78,9 +78,9 @@ export function Hero() {
 
       <div className="gutter absolute inset-x-0 bottom-0 z-10 pb-10 md:pb-14">
         <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_auto]">
-          <div className="max-w-[920px]">
+          <div className="max-w-[57.5rem]">
             <motion.p
-              className="mb-6 flex items-center gap-3 text-[16px] text-white/80"
+              className="mb-6 flex items-center gap-3 text-[1rem] text-white/80"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.2, ease }}
@@ -88,7 +88,7 @@ export function Hero() {
               <span aria-hidden className="h-px w-8 bg-bronze-soft" />
               Architecture and interiors studio, London, Edinburgh, Melbourne
             </motion.p>
-            <h1 className="text-[clamp(40px,5.6vw,86px)] leading-[1.02] tracking-[-0.025em]">
+            <h1 className="text-[clamp(2.5rem,5.6vw,5.375rem)] leading-[1.02] tracking-[-0.025em]">
               {["Buildings and interiors", "designed to be"].map((line, index) => (
                 <span key={line} className="block overflow-hidden pb-[0.06em]">
                   <motion.span
@@ -109,7 +109,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.55, ease }}
             >
-              <p className="max-w-[460px] text-[18px] leading-[1.45] text-white/85">
+              <p className="max-w-[28.75rem] text-[1.125rem] leading-[1.45] text-white/85">
                 Homes, schools and cultural buildings, designed and seen through by the same small
                 team from the first sketch to the day you move in.
               </p>
@@ -117,7 +117,7 @@ export function Hero() {
                 <Button href="/contact" tone="light">
                   Start a project
                 </Button>
-                <Link href="/work" className="roll-host text-[18px]">
+                <Link href="/work" className="roll-host text-[1.125rem]">
                   <Roll>View our work</Roll>
                 </Link>
               </div>
@@ -127,17 +127,17 @@ export function Hero() {
           {/* The project behind the copy, credited like a plate caption. */}
           <div className="flex w-full items-end justify-between gap-8 border-t border-white/25 pt-5 lg:w-[340px] lg:flex-col lg:items-stretch">
             <Link href={`/work/${project.slug}`} className="roll-host block min-w-0">
-              <span className="mb-1 block text-[16px] text-white/70">
+              <span className="mb-1 block text-[1rem] text-white/70">
                 <Swap id={project.slug}>
                   {project.location}, {project.year}
                 </Swap>
               </span>
-              <span className="block text-[20px]">
+              <span className="block text-[1.25rem]">
                 <Swap id={project.slug}>{project.title}</Swap>
               </span>
             </Link>
             <div className="flex shrink-0 items-center gap-5 lg:justify-between">
-              <span className="text-[16px] tabular-nums text-white/70">
+              <span className="text-[1rem] tabular-nums text-white/70">
                 {formatIndex(current + 1)} / {formatIndex(featured.length)}
               </span>
               <span aria-hidden className="relative hidden h-px w-24 overflow-hidden bg-white/25 lg:block">
@@ -152,7 +152,7 @@ export function Hero() {
               <button
                 type="button"
                 onClick={() => setTick((value) => value + 1)}
-                className="roll-host text-[18px]"
+                className="roll-host text-[1.125rem]"
                 aria-label="Show next project"
               >
                 <Roll>

@@ -11,8 +11,8 @@ function Step({ step }: { step: (typeof process)[number] }) {
   return (
     <article className="w-full shrink-0 md:w-[700px]">
       <header className="flex items-end gap-4 pb-5">
-        <span className="font-serif text-[48px] leading-[0.87]">{step.index}</span>
-        <h3 className="text-[24px] leading-[0.87] uppercase">
+        <span className="font-serif text-[3rem] leading-[0.87]">{step.index}</span>
+        <h3 className="text-[1.5rem] leading-[0.87] uppercase">
           {first}
           {rest.length ? (
             <>
@@ -27,7 +27,7 @@ function Step({ step }: { step: (typeof process)[number] }) {
         <Unmask className="zoom aspect-[345/330] bg-ink/10">
           <Photo src={step.image} alt="" fill />
         </Unmask>
-        <p className="text-justify text-[18px] leading-[1.4]">{step.copy}</p>
+        <p className="text-justify text-[1.125rem] leading-[1.4]">{step.copy}</p>
       </div>
     </article>
   );
@@ -60,7 +60,7 @@ export function Process() {
         className="relative hidden md:block"
         style={{ height: `calc(100svh + ${distance}px)` }}
       >
-        <div className="sticky top-0 flex h-svh flex-col justify-center overflow-hidden py-[40px]">
+        <div className="sticky top-0 flex h-svh flex-col justify-center overflow-hidden py-[2.5rem]">
           <div className="gutter">
             <Eyebrow>From first meeting to handover</Eyebrow>
             <SplitTitle left="Our" right="Process" className="mt-6" />
@@ -75,7 +75,7 @@ export function Process() {
       </section>
 
       {/* Mobile: a plain stack. */}
-      <section className="gutter py-[60px] md:hidden">
+      <section className="gutter py-[3.75rem] md:hidden">
         <Eyebrow>From first meeting to handover</Eyebrow>
         <SplitTitle left="Our" right="Process" className="mt-6" />
         <div className="mt-12 space-y-14">

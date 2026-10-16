@@ -21,22 +21,22 @@ export function Footer() {
 
   return (
     <footer className="overflow-hidden bg-charcoal-deep text-bone">
-      <div className="gutter pt-[110px] lg:pt-[140px]">
+      <div className="gutter pt-[6.875rem] lg:pt-[8.75rem]">
         {/* Invitation */}
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-end">
           <div>
-            <p className="flex items-center gap-3 text-[16px] text-bone/70">
+            <p className="flex items-center gap-3 text-[1rem] text-bone/70">
               <span aria-hidden className="h-px w-8 bg-bronze-soft" />
               Start a project
             </p>
-            <h2 className="mt-8 text-[clamp(44px,6.4vw,104px)] leading-[0.98] tracking-[-0.03em]">
+            <h2 className="mt-8 text-[clamp(2.75rem,6.4vw,6.5rem)] leading-[0.98] tracking-[-0.03em]">
               Have a project
               <br />
               <em className="font-serif text-bronze-soft italic">in mind?</em>
             </h2>
           </div>
           <div className="lg:pb-3">
-            <p className="max-w-[440px] text-[20px] leading-[1.5] text-bone/85">
+            <p className="max-w-[27.5rem] text-[1.25rem] leading-[1.5] text-bone/85">
               Tell us about the site, the brief and your timing, and we will arrange a first
               conversation.
             </p>
@@ -44,7 +44,7 @@ export function Footer() {
               <Button href="/contact" tone="light">
                 Start a project
               </Button>
-              <a href={`mailto:${site.email}`} className="roll-host text-[20px]">
+              <a href={`mailto:${site.email}`} className="roll-host text-[1.25rem]">
                 <Roll>{site.email}</Roll>
               </a>
             </div>
@@ -52,23 +52,23 @@ export function Footer() {
         </div>
 
         {/* Studios and site map */}
-        <div className="mt-[100px] grid gap-12 border-t border-line-light pt-12 sm:grid-cols-2 lg:mt-[130px] lg:grid-cols-12 lg:gap-10">
+        <div className="mt-[6.25rem] grid gap-12 border-t border-line-light pt-12 sm:grid-cols-2 lg:mt-[8.125rem] lg:grid-cols-12 lg:gap-10">
           {offices.map((office) => (
             <address key={office.city} className="not-italic lg:col-span-3">
-              <h3 className="font-ex text-[20px] leading-none uppercase">{office.city}</h3>
-              <p className="mt-5 max-w-[240px] text-[18px] leading-[1.5] text-bone/80">{office.address}</p>
-              <a href={`tel:${office.phone.replace(/\s/g, "")}`} className="mt-3 block w-fit text-[18px] text-bone/80 hover:text-bone">
+              <h3 className="font-ex text-[1.25rem] leading-none uppercase">{office.city}</h3>
+              <p className="mt-5 max-w-[15rem] text-[1.125rem] leading-[1.5] text-bone/80">{office.address}</p>
+              <a href={`tel:${office.phone.replace(/\s/g, "")}`} className="mt-3 block w-fit text-[1.125rem] text-bone/80 hover:text-bone">
                 {office.phone}
               </a>
             </address>
           ))}
           <div className="grid grid-cols-2 gap-8 lg:col-span-3">
             <nav aria-label="Footer">
-              <h3 className="text-[16px] text-bone/60">Explore</h3>
+              <h3 className="text-[1rem] text-bone/60">Explore</h3>
               <ul className="mt-4 space-y-2">
                 {pages.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="roll-host text-[18px]">
+                    <Link href={link.href} className="roll-host text-[1.125rem]">
                       <Roll>{link.label}</Roll>
                     </Link>
                   </li>
@@ -76,11 +76,11 @@ export function Footer() {
               </ul>
             </nav>
             <div>
-              <h3 className="text-[16px] text-bone/60">Follow</h3>
+              <h3 className="text-[1rem] text-bone/60">Follow</h3>
               <ul className="mt-4 space-y-2">
                 {social.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} target="_blank" rel="noreferrer" className="roll-host text-[18px]">
+                    <a href={link.href} target="_blank" rel="noreferrer" className="roll-host text-[1.125rem]">
                       <Roll>{link.label}</Roll>
                     </a>
                   </li>
@@ -91,7 +91,7 @@ export function Footer() {
         </div>
 
         {/* Legal row */}
-        <div className="mt-20 flex flex-col justify-between gap-4 border-t border-line-light py-7 text-[16px] text-bone/70 sm:flex-row sm:items-center">
+        <div className="mt-20 flex flex-col justify-between gap-4 border-t border-line-light py-7 text-[1rem] text-bone/70 sm:flex-row sm:items-center">
           <p>
             © {new Date().getFullYear()} {site.legal}
           </p>
