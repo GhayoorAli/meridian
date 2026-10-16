@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ink: #0b0b0a;
-  --color-ink-soft: #161512;
-  --color-paper: #efe8d8;
-  --color-paper-dim: #d9d1be;
-  --color-mist: #b8b09e;
-  --color-signal: #d6ff3c;
-  --color-rust: #c85a2e;
-  --color-line: rgba(239, 232, 216, 0.14);
-  --color-line-strong: rgba(239, 232, 216, 0.28);
-  --font-display: var(--font-syne);
-  --font-serif: var(--font-newsreader);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bone: #dfdddc;
+  --color-ink: #171717;
+  --color-ink-soft: #212121;
+  --color-cream: #d9d4c2;
+  --color-stone: #6b6966;
+  --color-line: rgba(23, 23, 23, 0.16);
+  --color-line-light: rgba(217, 212, 194, 0.16);
+  --font-sans: var(--font-archivo);
+  --font-serif: var(--font-instrument);
 }
 
-:root {
-  --cursor-x: 50%;
-  --cursor-y: 50%;
-  --orb-x: 70%;
-  --orb-y: 40%;
+@utility font-ex {
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-stretch: 125%;
+}
+
+@utility gutter {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @media (width >= 48rem) {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 * {
@@ -28,271 +32,357 @@
 }
 
 html {
-  background: var(--color-ink);
-  color: var(--color-paper);
-  scroll-behavior: auto;
+  background: var(--color-bone);
+  color: var(--color-ink);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
 }
 
 body {
   min-height: 100%;
-  background: var(--color-ink);
-  color: var(--color-paper);
-  font-family: var(--font-sans), sans-serif;
+  background: var(--color-bone);
+  color: var(--color-ink);
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--color-signal);
-  color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-cream);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  body,
-  a,
-  button,
-  [data-cursor] {
-    cursor: none;
-  }
+/*
+ * Rolling label used by every text button. Three copies sit in a column inside a one-line
+ * window; on hover the column jumps two slots so the third copy lands in view.
+ */
+.roll {
+  --roll-lh: 1.25em;
+  --roll-gap: 0.3em;
+  display: inline-block;
+  height: var(--roll-lh);
+  overflow: hidden;
+  vertical-align: middle;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0b0b0a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #3a382f;
-  border-radius: 99px;
-}
-
-.noise {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  opacity: 0.085;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.hatch {
-  background-image: repeating-linear-gradient(
-    -32deg,
-    transparent,
-    transparent 7px,
-    rgba(239, 232, 216, 0.045) 7px,
-    rgba(239, 232, 216, 0.045) 8px
-  );
-}
-
-.topo {
-  background-image:
-    radial-gradient(circle at var(--orb-x) var(--orb-y), rgba(214, 255, 60, 0.13), transparent 28%),
-    repeating-radial-gradient(
-      circle at 18% 80%,
-      transparent 0 18px,
-      rgba(239, 232, 216, 0.05) 19px 20px
-    );
-}
-
-.grid-field {
-  background-size: 72px 72px;
-  background-image:
-    linear-gradient(to right, rgba(239, 232, 216, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(239, 232, 216, 0.06) 1px, transparent 1px);
-}
-
-.link-draw {
-  position: relative;
-}
-
-.link-draw::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  height: 1px;
-  width: 100%;
-  transform: scaleX(0);
-  transform-origin: right;
-  background: currentColor;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.link-draw:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-.stroke-title {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(239, 232, 216, 0.55);
-}
-
-.marquee-track {
+.roll-track {
   display: flex;
+  flex-direction: column;
+  gap: var(--roll-gap);
   width: max-content;
-  animation: marquee 42s linear infinite;
+  transition: transform 0.6s ease;
 }
 
-.marquee-track:hover {
-  animation-play-state: paused;
+.roll-track > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: var(--roll-lh);
+  line-height: var(--roll-lh);
+  white-space: nowrap;
 }
 
-.img-zoom {
+.roll-host:hover .roll-track,
+.roll-host:focus-visible .roll-track,
+.roll:hover .roll-track {
+  transform: translateY(calc(-2 * (var(--roll-lh) + var(--roll-gap))));
+}
+
+/* Slow photographic zoom on hover. */
+.zoom {
   overflow: hidden;
 }
 
-.img-zoom img {
-  transform: scale(1.04);
-  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s ease;
-  filter: saturate(0.85) contrast(1.05);
+.zoom img {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.img-zoom:hover img {
-  transform: scale(1.14);
-  filter: saturate(1.05) contrast(1.08);
+.zoom:hover img,
+.group:hover .zoom img {
+  transform: scale(1.05);
 }
 
-.panel-expand {
-  flex: 1 1 0;
-  transition: flex 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+/*
+ * Project card hover, measured from the reference: over 0.6s the cover darkens, blurs and
+ * zooms, a second photograph opens from the centre, the type and place slide in over it,
+ * and "View more" unclips from the middle of its brackets.
+ */
+.card {
+  --card-ease: cubic-bezier(0.45, 0, 0.55, 1);
+  --card-time: 0.6s;
 }
 
-.panel-expand:hover {
-  flex: 1.55 1 0;
+.card-meta {
+  opacity: 0.8;
+  transition: opacity var(--card-time) var(--card-ease);
 }
 
-.clip-reveal {
-  clip-path: inset(4% 4% 4% 4%);
-  transition: clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+.card-paren {
+  transition: margin var(--card-time) var(--card-ease);
 }
 
-.clip-reveal:hover {
-  clip-path: inset(0 0 0 0);
+.card-paren-open {
+  margin-right: -12px;
 }
 
-.halo-btn {
-  position: relative;
-  isolation: isolate;
+.card-paren-close {
+  margin-left: -12px;
 }
 
-.halo-btn::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: conic-gradient(
-    from 180deg,
-    transparent,
-    rgba(214, 255, 60, 0.7),
-    transparent 40%
-  );
+.card-more {
+  clip-path: inset(0 50% 0 50%);
+  transition: clip-path var(--card-time) var(--card-ease);
+}
+
+.card-main {
+  transition:
+    transform var(--card-time) var(--card-ease),
+    filter var(--card-time) var(--card-ease);
+}
+
+.card-hover {
+  clip-path: inset(50% 50% 50% 50%);
+  transition: clip-path var(--card-time) var(--card-ease);
+}
+
+.card-label {
   opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-  animation: spin 4s linear infinite;
+  transition:
+    opacity var(--card-time) var(--card-ease),
+    transform var(--card-time) var(--card-ease);
 }
 
-.halo-btn:hover::before {
-  opacity: 1;
+.card-label-top {
+  transform: translate(-50%, -40px);
 }
 
-.index-row {
-  position: relative;
+.card-label-bottom {
+  transform: translate(-50%, 40px);
 }
 
-.index-row::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 -1.25rem;
-  width: 0;
-  background: var(--color-signal);
-  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.index-row:hover::before {
-  width: 3px;
-}
-
-.spin-slow {
-  animation: spin 28s linear infinite;
-}
-
-@keyframes grain {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-2%, 1%);
-  }
-  50% {
-    transform: translate(1%, -2%);
-  }
-  75% {
-    transform: translate(-1%, 2%);
-  }
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rise {
-  from {
-    transform: translateY(110%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse-line {
-  0%,
-  100% {
-    opacity: 0.25;
-  }
-  50% {
+@media (hover: hover) {
+  .card:hover .card-meta {
     opacity: 1;
   }
-}
 
-.topo-line {
-  stroke-dasharray: 8 14;
-  animation: dash 18s linear infinite;
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: -400;
+  .card:hover .card-paren {
+    margin: 0;
   }
+
+  .card:hover .card-more {
+    clip-path: inset(0 0 0 0);
+  }
+
+  .card:hover .card-main {
+    transform: scale(1.1);
+    filter: grayscale(1) blur(4px) brightness(0.3);
+  }
+
+  .card:hover .card-hover {
+    clip-path: inset(9% 5% 9% 5%);
+  }
+
+  .card:hover .card-label {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/*
+ * Journal rows, measured from the reference press list.
+ *
+ * Click mode (journal page, smaller screens): opening takes 1.05s, closing 0.82s. The square
+ * grows 264px -> 520px, the side columns narrow with it, the type slides to the far left, the
+ * excerpt comes in from the left and the description and gallery strip from the right.
+ *
+ * Sequence mode (home page, desktop) is driven frame by frame from press-sequence.ts; these
+ * rules only set its resting layout.
+ */
+.journal-row {
+  --j-io: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --j-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --j-out3: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --j-in: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --j-time: 0.82s;
+  --j-size: 264px;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.journal-row::-webkit-scrollbar {
+  display: none;
+}
+
+.journal-row[data-open="true"] {
+  --j-time: 1.05s;
+}
+
+.journal-row[data-mode="click"][data-open="true"] {
+  --j-size: 520px;
+  overflow-x: auto;
+}
+
+.journal-row[data-mode="click"] .journal-track {
+  height: var(--j-size);
+  transition: height var(--j-time) var(--j-io);
+}
+
+.journal-row[data-mode="click"] .journal-image {
+  width: var(--j-size);
+  height: var(--j-size);
+  transition:
+    width var(--j-time) var(--j-io),
+    height var(--j-time) var(--j-io);
+}
+
+.journal-row[data-mode="click"] .journal-type {
+  left: 100%;
+  transform: translateX(-100%);
+  transition:
+    left var(--j-time) var(--j-io),
+    transform var(--j-time) var(--j-io);
+}
+
+.journal-row[data-mode="click"][data-open="true"] .journal-type {
+  left: 0;
+  transform: translateX(0);
+}
+
+.journal-row[data-mode="click"] .journal-excerpt,
+.journal-row[data-mode="click"] .journal-slide {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity calc(var(--j-time) * 0.4) var(--j-in),
+    transform calc(var(--j-time) * 0.4) var(--j-in),
+    visibility 0s linear calc(var(--j-time) * 0.4);
+}
+
+.journal-row[data-mode="click"] .journal-excerpt {
+  transform: translateX(-64px);
+}
+
+.journal-row[data-mode="click"] .journal-slide {
+  transform: translateX(80px);
+}
+
+.journal-row[data-mode="click"][data-open="true"] .journal-excerpt {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  transition:
+    opacity calc(var(--j-time) * 0.8) var(--j-out3) calc(var(--j-time) * 0.18),
+    transform calc(var(--j-time) * 0.8) var(--j-out3) calc(var(--j-time) * 0.18),
+    visibility 0s;
+}
+
+.journal-row[data-mode="click"][data-open="true"] .journal-slide {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  transition:
+    opacity calc(var(--j-time) * 0.75) var(--j-out) calc(var(--j-time) * 0.24),
+    transform calc(var(--j-time) * 0.75) var(--j-out) calc(var(--j-time) * 0.24),
+    visibility 0s;
+}
+
+.journal-row[data-mode="click"][data-open="true"] .journal-gallery {
+  transition-delay: calc(var(--j-time) * 0.24 + 0.09s);
+}
+
+.journal-row[data-mode="click"] .journal-gallery {
+  height: var(--j-size);
+  transition-property: opacity, transform, visibility, height;
+}
+
+/* Sequence mode: resting layout only; press-sequence.ts animates every value inline. */
+.journal-row[data-mode="sequence"] {
+  height: 264px;
+  overflow: hidden;
+}
+
+.journal-row[data-mode="sequence"] .journal-track {
+  height: 100%;
+  width: max-content;
+  min-width: 100%;
+}
+
+.journal-row[data-mode="sequence"] .journal-before,
+.journal-row[data-mode="sequence"] .journal-after {
+  flex: none;
+}
+
+.journal-row[data-mode="sequence"] .journal-type {
+  right: 0;
+}
+
+.journal-row[data-mode="sequence"] .journal-image,
+.journal-row[data-mode="sequence"] .journal-gallery {
+  width: 264px;
+  height: 264px;
+}
+
+.journal-row[data-mode="sequence"] .journal-gallery {
+  width: auto;
+}
+
+.journal-row[data-mode="sequence"] .journal-excerpt,
+.journal-row[data-mode="sequence"] .journal-slide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Phone fold: height opens, then each block rises 18px into place. */
+.journal-fold {
+  --j-time: 0.58s;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--j-time) var(--j-io);
+}
+
+.journal-row[data-open="true"] .journal-fold {
+  --j-time: 0.76s;
+  grid-template-rows: 1fr;
+}
+
+.journal-fold-item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity calc(var(--j-time) * 0.7) var(--j-out),
+    transform calc(var(--j-time) * 0.7) var(--j-out);
+}
+
+.journal-row[data-open="true"] .journal-fold-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--j-time) * 0.15);
+}
+
+.journal-row[data-open="true"] .journal-fold-item:nth-child(2) {
+  transition-delay: calc(var(--j-time) * 0.15 + 0.045s);
+}
+
+.journal-row[data-open="true"] .journal-fold-item:nth-child(3) {
+  transition-delay: calc(var(--j-time) * 0.15 + 0.09s);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .noise,
-  .marquee-track,
-  .spin-slow,
-  .halo-btn::before,
-  .topo-line {
-    animation: none !important;
-  }
-
-  html {
-    scroll-behavior: auto;
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }

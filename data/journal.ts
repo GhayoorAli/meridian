@@ -7,6 +7,8 @@ export type Article = {
   author: string;
   role: string;
   image: string;
+  /** Three supporting photographs shown when the essay is opened in the journal list. */
+  gallery: string[];
   tags: string[];
   body: string[];
 };
@@ -21,7 +23,12 @@ export const articles: Article[] = [
     author: "Elena Carter",
     role: "Founding Partner",
     image:
-      "/images/photo-1474044159687-1ee9f3a51722.jpg",
+      "/images/photo-1747304349673-ed528cfe3223.jpg",
+    gallery: [
+      "/images/photo-1769721143812-3cb8ae1ca8ed.jpg",
+      "/images/photo-1601993957728-1e56ab70c5a8.jpg",
+      "/images/photo-1640357897497-599b4fc84f51.jpg",
+    ],
     tags: ["Climate", "Method"],
     body: [
       "We still draw buildings as if air were free and shade were decoration. In London last July the pavement at 16:00 was 61 C. That is not a weather anecdote. It is a specification failure.",
@@ -39,7 +46,12 @@ export const articles: Article[] = [
     author: "Sarah Hall",
     role: "Partner, Edinburgh",
     image:
-      "/images/photo-1504893524553-b855bce32c67.jpg",
+      "/images/photo-1787537381870-dee3a265a803.jpg",
+    gallery: [
+      "/images/photo-1767567467844-ce73778da9ac.jpg",
+      "/images/photo-1775344215140-2551ed60a89e.jpg",
+      "/images/photo-1790219379238-025d5434d069.jpg",
+    ],
     tags: ["Survey", "Scotland"],
     body: [
       "The 2018 survey line at Orkney is already a fiction. We keep it on the sheet, in a pale ink, as a ghost. The new line is measured every March and drawn in a heavier hand.",
@@ -57,7 +69,12 @@ export const articles: Article[] = [
     author: "Elena Carter",
     role: "Founding Partner",
     image:
-      "/images/photo-1513635269975-59663e0ac1ad.jpg",
+      "/images/photo-1774762720340-8067294bb494.jpg",
+    gallery: [
+      "/images/photo-1650233323933-53e20427e277.jpg",
+      "/images/photo-1711873316332-acb6930211e1.jpg",
+      "/images/photo-1737442981890-0a87ef3ce9f5.jpg",
+    ],
     tags: ["Civic", "London"],
     body: [
       "A plane tree is a piece of civic infrastructure with a fifty-year payback. A cafe awning is a private claim on the same air. London is confusing the two.",
@@ -74,7 +91,12 @@ export const articles: Article[] = [
     author: "James Morrow",
     role: "Partner, Melbourne",
     image:
-      "/images/photo-1418065460487-3e41a6c84dc5.jpg",
+      "/images/photo-1730170787482-2c9e1f4b360a.jpg",
+    gallery: [
+      "/images/photo-1715760374522-a609a0c2f65e.jpg",
+      "/images/photo-1632164661434-505c7a17b228.jpg",
+      "/images/photo-1774487719206-0d9762e41a69.jpg",
+    ],
     tags: ["Landscape", "England"],
     body: [
       "We spent November on our knees in the Lake District, naming mosses that had colonized a collapsed retaining wall. The wall was a failure. The moss was a complete civilization.",
@@ -91,7 +113,12 @@ export const articles: Article[] = [
     author: "Martha Vale",
     role: "Associate, Light",
     image:
-      "/images/photo-1514565131-fce0801e5785.jpg",
+      "/images/photo-1737442981890-0a87ef3ce9f5.jpg",
+    gallery: [
+      "/images/photo-1652272160585-62087946e04e.jpg",
+      "/images/photo-1785529907889-2d75e49414b2.jpg",
+      "/images/photo-1546414701-81cc6963c67f.jpg",
+    ],
     tags: ["Light", "Research"],
     body: [
       "The average European street has become a corridor of glare. We light for insurance, not for faces. The result is that people look worse, sleep worse, and still do not feel safe.",
@@ -108,7 +135,12 @@ export const articles: Article[] = [
     author: "Daniel Brooks",
     role: "Associate, Research",
     image:
-      "/images/photo-1600210492486-724fe5c67fb0.jpg",
+      "/images/photo-1789465786294-41aeca4eb4ef.jpg",
+    gallery: [
+      "/images/photo-1724582586458-a51791349977.jpg",
+      "/images/photo-1567016376408-0226e4d0c1ea.jpg",
+      "/images/photo-1758972581195-c27b9d3b1c56.jpg",
+    ],
     tags: ["History", "Climate"],
     body: [
       "The comfort band was written for offices in the American Midwest and then sold to the planet as biology. It is neither biology nor polite.",

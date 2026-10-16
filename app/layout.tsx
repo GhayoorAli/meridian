@@ -1,31 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Newsreader, Syne } from "next/font/google";
+import { Archivo, Instrument_Serif } from "next/font/google";
 import { Providers } from "@/components/providers";
-import { Grain } from "@/components/grain";
 import { Footer } from "@/components/footer";
+import { Preloader } from "@/components/preloader";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  axes: ["wdth"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrument = Instrument_Serif({
+  variable: "--font-instrument",
   subsets: ["latin"],
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-});
-
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
+  weight: "400",
+  style: "italic",
 });
 
 export const metadata: Metadata = {
@@ -44,11 +35,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${newsreader.variable} h-full antialiased`}
+      className={`${archivo.variable} ${instrument.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-ink text-paper" suppressHydrationWarning>
-        <Grain />
+      <body className="min-h-full bg-bone text-ink" suppressHydrationWarning>
+        <Preloader />
         <Providers>{children}</Providers>
         <Footer />
       </body>

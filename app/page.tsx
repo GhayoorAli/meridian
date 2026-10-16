@@ -1,28 +1,22 @@
 import { Hero } from "@/components/sections/hero";
-import { Manifesto } from "@/components/sections/manifesto";
+import { Studio } from "@/components/sections/studio";
 import { Works } from "@/components/sections/works";
-import { Capabilities } from "@/components/sections/capabilities";
 import { Process } from "@/components/sections/process";
-import { Stations } from "@/components/sections/stations";
 import { JournalPreview } from "@/components/sections/journal-preview";
-import { Recognition } from "@/components/sections/recognition";
-import { Inquire } from "@/components/sections/inquire";
-import { Marquee } from "@/components/marquee";
-import { clients } from "@/data/site";
 
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <Manifesto />
-      <Works />
-      <Capabilities />
-      <Process />
-      <Stations />
-      <Marquee items={clients} />
-      <JournalPreview />
-      <Recognition />
-      <Inquire />
+      {/* The hero stays pinned while the rest of the page slides up over it like a panel. */}
+      <div className="sticky top-0 z-0">
+        <Hero />
+      </div>
+      <div className="relative z-10 bg-bone">
+        <Studio />
+        <Works />
+        <Process />
+        <JournalPreview />
+      </div>
     </main>
   );
 }

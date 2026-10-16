@@ -1,6 +1,7 @@
-import { Photo } from "@/components/photo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Photo } from "@/components/photo";
+import { Roll, Unmask } from "@/components/ui";
 import { articles, getArticle, getNextArticle } from "@/data/journal";
 
 export function generateStaticParams() {
@@ -30,40 +31,42 @@ export default async function ArticlePage({
 
   return (
     <main>
-      <article className="px-5 pt-32 pb-16 md:px-8">
-        <p className="font-mono text-[11px] tracking-[0.28em] uppercase text-signal">
-          {article.date} · {article.read}
-        </p>
-        <h1 className="mt-5 max-w-4xl font-display text-5xl tracking-tight md:text-7xl">
+      <article className="gutter pt-[120px] pb-[100px]">
+        <div className="grid grid-cols-3 border-b border-line pb-3 font-light text-[14px] md:text-[16px]">
+          <span>{article.tags.join(", ")}</span>
+          <span className="text-center">{article.date}</span>
+          <span className="text-right">{article.read}</span>
+        </div>
+        <h1 className="mt-14 max-w-[1100px] font-ex text-[clamp(36px,4.4vw,64px)] leading-[1.02] uppercase">
           {article.title}
         </h1>
-        <p className="mt-6 max-w-2xl font-serif text-2xl text-paper-dim">{article.dek}</p>
-        <p className="mt-6 font-mono text-[11px] tracking-[0.18em] uppercase text-mist">
-          {article.author} — {article.role}
-        </p>
-        <div className="img-zoom relative mt-12 aspect-[16/8] overflow-hidden">
-          <Photo src={article.image} alt={article.title} width={1200} eager fill />
+        <div className="mt-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <p className="max-w-[445px] font-serif text-[24px] leading-[1.15]">{article.dek}</p>
+          <p className="text-[14px]">
+            {article.author} <span className="font-light text-stone">— {article.role}</span>
+          </p>
         </div>
-        <div className="mx-auto mt-16 max-w-2xl space-y-7">
+
+        <Unmask className="mt-14 aspect-[16/8]">
+          <Photo src={article.image} alt={article.title} eager fill />
+        </Unmask>
+
+        <div className="mt-[90px] ml-auto max-w-[680px] space-y-7">
           {article.body.map((paragraph) => (
-            <p key={paragraph} className="font-serif text-xl leading-relaxed text-paper-dim">
+            <p key={paragraph} className="text-justify font-light text-[18px] leading-[1.5]">
               {paragraph}
             </p>
           ))}
         </div>
       </article>
-      <Link
-        href={`/journal/${next.slug}`}
-        className="group flex items-end justify-between border-t border-line px-5 py-16 md:px-8"
-        data-cursor="Next"
-      >
-        <div>
-          <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-signal">Next essay</p>
-          <p className="mt-3 font-display text-4xl tracking-tight group-hover:text-signal md:text-5xl">
-            {next.title}
-          </p>
-        </div>
-        <span>→</span>
+
+      <Link href={`/journal/${next.slug}`} className="roll-host gutter block border-t border-line pt-10 pb-[100px]">
+        <span className="mb-8 inline-flex text-[16px]">
+          <Roll>Next essay</Roll>
+        </span>
+        <p className="max-w-[1100px] font-ex text-[clamp(28px,3.4vw,48px)] leading-[1.05] uppercase">
+          {next.title}
+        </p>
       </Link>
     </main>
   );

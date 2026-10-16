@@ -49,11 +49,11 @@ export const projects: Project[] = [
       { role: "Photography", name: "Aaron Magee" },
     ],
     image:
-      "/images/photo-1504893524553-b855bce32c67.jpg",
+      "/images/photo-1775344215140-2551ed60a89e.jpg",
     gallery: [
-      "/images/photo-1476514525535-07fb3b4ae5f1.jpg",
-      "/images/photo-1469474968028-56623f02e42e.jpg",
-      "/images/photo-1418065460487-3e41a6c84dc5.jpg",
+      "/images/photo-1711873316332-acb6930211e1.jpg",
+      "/images/photo-1774762720340-8067294bb494.jpg",
+      "/images/photo-1737442981890-0a87ef3ce9f5.jpg",
     ],
     featured: true,
   },
@@ -84,11 +84,11 @@ export const projects: Project[] = [
       { role: "Joinery", name: "Wind Workshop" },
     ],
     image:
-      "/images/photo-1600585154340-be6161a56a0c.jpg",
+      "/images/photo-1790219379238-025d5434d069.jpg",
     gallery: [
-      "/images/photo-1600210492486-724fe5c67fb0.jpg",
-      "/images/photo-1600607687939-ce8a6c25118c.jpg",
-      "/images/photo-1600596542815-ffad4c1539a9.jpg",
+      "/images/photo-1724582586458-a51791349977.jpg",
+      "/images/photo-1640357897497-599b4fc84f51.jpg",
+      "/images/photo-1632164661434-505c7a17b228.jpg",
     ],
     featured: true,
   },
@@ -119,11 +119,11 @@ export const projects: Project[] = [
       { role: "Joinery", name: "North Woodworks" },
     ],
     image:
-      "/images/photo-1493976040374-85c8e12f0c0e.jpg",
+      "/images/photo-1730170787482-2c9e1f4b360a.jpg",
     gallery: [
-      "/images/photo-1524413840807-0c3cb6fa808d.jpg",
-      "/images/photo-1470071459604-3b5ec3a7fe05.jpg",
-      "/images/photo-1418065460487-3e41a6c84dc5.jpg",
+      "/images/photo-1650233323933-53e20427e277.jpg",
+      "/images/photo-1715760374522-a609a0c2f65e.jpg",
+      "/images/photo-1711873317324-36e76613be97.jpg",
     ],
     featured: true,
   },
@@ -154,11 +154,11 @@ export const projects: Project[] = [
       { role: "Civic brief", name: "Bath Town Council" },
     ],
     image:
-      "/images/photo-1474044159687-1ee9f3a51722.jpg",
+      "/images/photo-1787228770216-669baf984e87.jpg",
     gallery: [
-      "/images/photo-1501785888041-af3ef285b470.jpg",
-      "/images/photo-1511818966892-05be0258ea0b.jpg",
-      "/images/photo-1449155997615-d74606d3d509.jpg",
+      "/images/photo-1769721143812-3cb8ae1ca8ed.jpg",
+      "/images/photo-1601993957728-1e56ab70c5a8.jpg",
+      "/images/photo-1567016376408-0226e4d0c1ea.jpg",
     ],
   },
   {
@@ -188,11 +188,11 @@ export const projects: Project[] = [
       { role: "Water study", name: "National Water Lab" },
     ],
     image:
-      "/images/photo-1487958449943-2429e8be8625.jpg",
+      "/images/photo-1527576539890-dfa815648363.jpg",
     gallery: [
-      "/images/photo-1518005020951-eccb49441edd.jpg",
-      "/images/photo-1555881400-74d7acaacd8b.jpg",
-      "/images/photo-1545324418-cc1a3fa10c00.jpg",
+      "/images/photo-1766587444660-6aebae05b0e5.jpg",
+      "/images/photo-1654722439127-0645ad92650b.jpg",
+      "/images/photo-1531591022136-eb8b0da1e6d0.jpg",
     ],
     featured: true,
   },
@@ -223,11 +223,11 @@ export const projects: Project[] = [
       { role: "Prefabrication", name: "Clara Timber" },
     ],
     image:
-      "/images/photo-1511818966892-05be0258ea0b.jpg",
+      "/images/photo-1791547405109-b8b4207a74d5.jpg",
     gallery: [
-      "/images/photo-1449155997615-d74606d3d509.jpg",
-      "/images/photo-1600210492486-724fe5c67fb0.jpg",
-      "/images/photo-1501785888041-af3ef285b470.jpg",
+      "/images/photo-1652272160585-62087946e04e.jpg",
+      "/images/photo-1687262304525-02287047d4d6.jpg",
+      "/images/photo-1758972581195-c27b9d3b1c56.jpg",
     ],
   },
   {
@@ -257,11 +257,11 @@ export const projects: Project[] = [
       { role: "Paper", name: "Valley Paper" },
     ],
     image:
-      "/images/photo-1524413840807-0c3cb6fa808d.jpg",
+      "/images/photo-1546414701-81cc6963c67f.jpg",
     gallery: [
-      "/images/photo-1493976040374-85c8e12f0c0e.jpg",
-      "/images/photo-1523906834658-6e24ef2386f9.jpg",
-      "/images/photo-1600210492486-724fe5c67fb0.jpg",
+      "/images/photo-1785529907889-2d75e49414b2.jpg",
+      "/images/photo-1724582586495-d050726cf354.jpg",
+      "/images/photo-1721714808874-35bcb03a8277.jpg",
     ],
   },
   {
@@ -291,11 +291,11 @@ export const projects: Project[] = [
       { role: "Fabrication", name: "Island Fabrication" },
     ],
     image:
-      "/images/photo-1433838552652-f9a46b332c40.jpg",
+      "/images/photo-1774487719206-0d9762e41a69.jpg",
     gallery: [
-      "/images/photo-1469474968028-56623f02e42e.jpg",
-      "/images/photo-1476514525535-07fb3b4ae5f1.jpg",
-      "/images/photo-1501785888041-af3ef285b470.jpg",
+      "/images/photo-1787537381870-dee3a265a803.jpg",
+      "/images/photo-1767567467844-ce73778da9ac.jpg",
+      "/images/photo-1462565946545-09e3fd33f393.jpg",
     ],
   },
 ];

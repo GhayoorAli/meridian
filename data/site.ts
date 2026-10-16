@@ -1,3 +1,8 @@
+export const studioImages = {
+  home: "/images/photo-1653164579768-ea97833b3b03.jpg",
+  page: "/images/photo-1782290547018-8bb89b8edf07.jpg",
+};
+
 export const site = {
   name: "Meridian",
   legal: "Meridian Studio Ltd.",
@@ -25,7 +30,7 @@ export const offices = [
     address: "14 River Walk, London SE1 2HB",
     phone: "+44 20 7946 0180",
     image:
-      "/images/photo-1513635269975-59663e0ac1ad.jpg",
+      "/images/photo-1462565946545-09e3fd33f393.jpg",
   },
   {
     city: "Edinburgh",
@@ -35,7 +40,7 @@ export const offices = [
     address: "16 Harbour Street, Edinburgh EH6 6JJ",
     phone: "+44 131 555 2140",
     image:
-      "/images/photo-1506377247590-0fd03317396c.jpg",
+      "/images/photo-1767567467844-ce73778da9ac.jpg",
   },
   {
     city: "Melbourne",
@@ -45,7 +50,7 @@ export const offices = [
     address: "181 Grove Lane, Melbourne VIC 3000",
     phone: "+61 3 8610 4402",
     image:
-      "/images/photo-1514395466468-5ce0ac32e883.jpg",
+      "/images/photo-1747304349673-ed528cfe3223.jpg",
   },
 ];
 
@@ -91,26 +96,31 @@ export const capabilities = [
 export const process = [
   {
     index: "01",
+    image: "/images/photo-1775344215140-2551ed60a89e.jpg",
     title: "Survey",
     copy: "We begin with wind roses, tide tables, soil cores, and a week of walking. Nothing is drawn until the site has been named properly.",
   },
   {
     index: "02",
+    image: "/images/photo-1789185328393-81aa082949cb.jpg",
     title: "Brief as climate",
     copy: "Programs are rewritten as thermal, social, and ecological loads. A school is a shade machine. A house is a wind instrument.",
   },
   {
     index: "03",
+    image: "/images/photo-1763076470404-23554ef26747.jpg",
     title: "Prototype",
     copy: "Full-size mock-ups in the Melbourne lab and on-site casts in Scotland. We trust a wall we have already failed once.",
   },
   {
     index: "04",
+    image: "/images/photo-1787672357923-ab85681ab58c.jpg",
     title: "Assemble",
     copy: "Construction is treated as a second design phase. Details are redrawn weekly with the people who will maintain them.",
   },
   {
     index: "05",
+    image: "/images/photo-1787059501804-3c865301bbfe.jpg",
     title: "Aftercare",
     copy: "Every project stays on the books for a decade. We return for moss surveys, night audits, and the first real summer.",
   },
