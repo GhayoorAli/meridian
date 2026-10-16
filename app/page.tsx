@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/hero";
 import { Studio } from "@/components/sections/studio";
+import { Services } from "@/components/sections/services";
 import { Works } from "@/components/sections/works";
 import { Process } from "@/components/sections/process";
 import { JournalPreview } from "@/components/sections/journal-preview";
@@ -13,6 +14,7 @@ export default function Home() {
       </div>
       <div className="relative z-10 bg-bone">
         <Studio />
+        <Services />
         <Works />
         <Process />
         <JournalPreview />

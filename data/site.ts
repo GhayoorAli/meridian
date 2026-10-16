@@ -6,9 +6,9 @@ export const studioImages = {
 export const site = {
   name: "Meridian",
   legal: "Meridian Studio Ltd.",
-  tagline: "Spatial research for a warming planet.",
+  tagline: "Architecture and interiors",
   description:
-    "Meridian is a spatial research studio designing architecture, landscape, and light systems across London, Edinburgh, and Melbourne.",
+    "Meridian is an architecture and interiors studio in London, Edinburgh and Melbourne, designing homes, public buildings and interiors from first sketch to completion.",
   email: "studio@meridian.field",
   press: "press@meridian.field",
   phone: "+44 20 7946 0180",
@@ -34,7 +34,7 @@ export const offices = [
   },
   {
     city: "Edinburgh",
-    role: "Field Station",
+    role: "Studio",
     timezone: "Europe/London",
     coordinates: "55.9533 N  ·  3.1883 W",
     address: "16 Harbour Street, Edinburgh EH6 6JJ",
@@ -44,7 +44,7 @@ export const offices = [
   },
   {
     city: "Melbourne",
-    role: "Material Lab",
+    role: "Studio",
     timezone: "Australia/Melbourne",
     coordinates: "37.8136 S  ·  144.9631 E",
     address: "181 Grove Lane, Melbourne VIC 3000",
@@ -54,42 +54,31 @@ export const offices = [
   },
 ];
 
-export const capabilities = [
+/** What the studio designs, in the words a client would use. */
+export const services = [
   {
     index: "01",
-    title: "Civic Ground",
-    copy: "Markets, baths, schools, and observatories that hold public life against weather, tourism, and heat.",
-    tags: ["Urban rooms", "Shade systems", "Shared water"],
+    title: "Architecture",
+    copy: "New buildings, extensions and restorations, from feasibility through planning to completion on site.",
+    examples: ["Houses", "Schools", "Cultural buildings"],
   },
   {
     index: "02",
-    title: "Dwelling",
-    copy: "Houses tuned to wind, salt, and slope. Rooms that age with plaster, timber, and the people inside them.",
-    tags: ["Residences", "Adaptive reuse", "Thermal mass"],
+    title: "Interiors",
+    copy: "Interiors drawn alongside the building: layout, joinery, lighting, furniture and finishes as one piece.",
+    examples: ["Residential", "Workplace", "Hospitality"],
   },
   {
     index: "03",
-    title: "Landscape Logic",
-    copy: "Coasts, moss fields, and volcanic soils treated as structure, not scenery. Planting as a fifty-year drawing.",
-    tags: ["Coastal repair", "Field surveys", "Water study"],
+    title: "Landscape",
+    copy: "Gardens, courtyards and public spaces planned with the building, so inside and outside work as one place.",
+    examples: ["Gardens", "Courtyards", "Public realm"],
   },
   {
     index: "04",
-    title: "Light Instruments",
-    copy: "Daylight, nightglow, and darkness designed as material. We measure glare the way others measure square meters.",
-    tags: ["Night vision", "Festival light", "Blackout"],
-  },
-  {
-    index: "05",
-    title: "Research",
-    copy: "Exhibitions, archives, and field stations that turn climate data into rooms you can walk through.",
-    tags: ["Pavilions", "Archives", "Prototypes"],
-  },
-  {
-    index: "06",
-    title: "Material Culture",
-    copy: "Lime, basalt, cedar, and recycled aluminum specified through making, not catalogs.",
-    tags: ["Workshops", "Spec libraries", "Repair"],
+    title: "Feasibility",
+    copy: "Site studies, briefs and early cost advice that tell you what is possible before you commit to a design.",
+    examples: ["Site studies", "Briefing", "Planning advice"],
   },
 ];
 
@@ -97,32 +86,32 @@ export const process = [
   {
     index: "01",
     image: "/images/photo-1775344215140-2551ed60a89e.jpg",
-    title: "Survey",
-    copy: "We begin with wind roses, tide tables, soil cores, and a week of walking. Nothing is drawn until the site has been named properly.",
+    title: "Brief",
+    copy: "We start by listening: how you live or work, your budget, your timing, and what the site allows.",
   },
   {
     index: "02",
     image: "/images/photo-1789185328393-81aa082949cb.jpg",
-    title: "Brief as climate",
-    copy: "Programs are rewritten as thermal, social, and ecological loads. A school is a shade machine. A house is a wind instrument.",
+    title: "Concept design",
+    copy: "Sketches, models and options, refined with you until the idea is clear and agreed.",
   },
   {
     index: "03",
     image: "/images/photo-1763076470404-23554ef26747.jpg",
-    title: "Prototype",
-    copy: "Full-size mock-ups in the Melbourne lab and on-site casts in Scotland. We trust a wall we have already failed once.",
+    title: "Detailed design",
+    copy: "Plans, materials and details drawn in full, and planning permission applied for and secured.",
   },
   {
     index: "04",
     image: "/images/photo-1787672357923-ab85681ab58c.jpg",
-    title: "Assemble",
-    copy: "Construction is treated as a second design phase. Details are redrawn weekly with the people who will maintain them.",
+    title: "On site",
+    copy: "We prepare the drawings contractors price from, then stay on site until the building is finished.",
   },
   {
     index: "05",
     image: "/images/photo-1787059501804-3c865301bbfe.jpg",
     title: "Aftercare",
-    copy: "Every project stays on the books for a decade. We return for moss surveys, night audits, and the first real summer.",
+    copy: "We come back after the first year to check the building is working as it should.",
   },
 ];
 
@@ -179,8 +168,7 @@ export const clients = [
 ];
 
 export const stats = [
-  { value: "38", label: "Built works", unit: "projects" },
-  { value: "3", label: "Field stations", unit: "cities" },
-  { value: "12", label: "Years of practice", unit: "since 2014" },
-  { value: "56 N", label: "Northernmost site", unit: "latitude" },
+  { value: "38", label: "Completed projects" },
+  { value: "3", label: "Studios" },
+  { value: "12", label: "Years in practice" },
 ];

@@ -30,7 +30,7 @@ export function Preloader() {
     <AnimatePresence>
       {visible ? (
         <motion.div
-          className="fixed inset-0 z-[90] grid place-items-center bg-ink"
+          className="fixed inset-0 z-[90] grid place-items-center bg-charcoal-deep"
           exit={{ clipPath: "inset(0 0 100% 0)" }}
           transition={{ duration: 0.9, ease: [0.65, 0, 0.35, 1] }}
         >

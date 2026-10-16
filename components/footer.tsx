@@ -1,82 +1,86 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDownRight, Roll } from "@/components/ui";
-import { navLinks, site } from "@/data/site";
+import { useLenis } from "lenis/react";
+import { ArrowDown, Button, Roll } from "@/components/ui";
+import { navLinks, offices, site } from "@/data/site";
 
 const social = [
   { label: "Instagram", href: "https://instagram.com" },
   { label: "LinkedIn", href: "https://linkedin.com" },
 ];
 
+/**
+ * The page's close: an open invitation to start a project, then the three studios, the
+ * site map, and the studio name set across the full width.
+ */
 export function Footer() {
-  const [sent, setSent] = useState(false);
+  const lenis = useLenis();
   const pages = [{ href: "/", label: "Home" }, ...navLinks];
 
   return (
-    <footer className="overflow-hidden bg-ink text-cream">
-      <div className="gutter pt-[50px]">
-        <div className="flex items-start justify-between gap-6">
-          <h2 className="max-w-[300px] font-light text-[24px] leading-[0.9]">
-            Architecture that measures, listens and stays.
-          </h2>
-          <a href={`mailto:${site.email}`} className="roll-host hidden text-[14px] md:inline-flex">
-            <Roll>{site.email}</Roll>
-          </a>
+    <footer className="overflow-hidden bg-charcoal-deep text-bone">
+      <div className="gutter pt-[110px] lg:pt-[140px]">
+        {/* Invitation */}
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-end">
+          <div>
+            <p className="flex items-center gap-3 text-[16px] text-bone/70">
+              <span aria-hidden className="h-px w-8 bg-bronze-soft" />
+              Start a project
+            </p>
+            <h2 className="mt-8 text-[clamp(44px,6.4vw,104px)] leading-[0.98] tracking-[-0.03em]">
+              Have a project
+              <br />
+              <em className="font-serif text-bronze-soft italic">in mind?</em>
+            </h2>
+          </div>
+          <div className="lg:pb-3">
+            <p className="max-w-[440px] text-[20px] leading-[1.5] text-bone/85">
+              Tell us about the site, the brief and your timing, and we will arrange a first
+              conversation.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-5">
+              <Button href="/contact" tone="light">
+                Start a project
+              </Button>
+              <a href={`mailto:${site.email}`} className="roll-host text-[20px]">
+                <Roll>{site.email}</Roll>
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-10 flex flex-col justify-between gap-12 md:flex-row">
-          <form
-            className="w-full max-w-[459px]"
-            onSubmit={(event) => {
-              event.preventDefault();
-              setSent(true);
-            }}
-          >
-            <label htmlFor="footer-email" className="block font-light text-[16px] leading-[1.2]">
-              Get in touch
-            </label>
-            <div className="relative mt-3">
-              <input
-                id="footer-email"
-                type="email"
-                required
-                placeholder={sent ? "Thank you — we will write back" : "Enter your email"}
-                className="h-14 w-full bg-ink-soft py-4 pr-[84px] pl-3 font-light text-[16px] text-cream outline-none placeholder:text-cream/70"
-              />
-              <button
-                type="submit"
-                className="roll-host absolute top-1/2 right-3 inline-flex -translate-y-1/2 items-center gap-2 font-light text-[16px]"
-              >
-                <Roll>
-                  Send
-                  <ArrowDownRight />
-                </Roll>
-              </button>
-            </div>
-          </form>
-
-          <div className="flex gap-16 md:gap-[100px]">
-            <div>
-              <h4 className="font-light text-[16px] leading-[1.2] text-cream/50">Company</h4>
-              <ul className="mt-3 grid grid-flow-col grid-rows-3 gap-x-10 font-light text-[16px] leading-[1.5]">
+        {/* Studios and site map */}
+        <div className="mt-[100px] grid gap-12 border-t border-line-light pt-12 sm:grid-cols-2 lg:mt-[130px] lg:grid-cols-12 lg:gap-10">
+          {offices.map((office) => (
+            <address key={office.city} className="not-italic lg:col-span-3">
+              <h3 className="font-ex text-[20px] leading-none uppercase">{office.city}</h3>
+              <p className="mt-5 max-w-[240px] text-[18px] leading-[1.5] text-bone/80">{office.address}</p>
+              <a href={`tel:${office.phone.replace(/\s/g, "")}`} className="mt-3 block w-fit text-[18px] text-bone/80 hover:text-bone">
+                {office.phone}
+              </a>
+            </address>
+          ))}
+          <div className="grid grid-cols-2 gap-8 lg:col-span-3">
+            <nav aria-label="Footer">
+              <h3 className="text-[16px] text-bone/60">Explore</h3>
+              <ul className="mt-4 space-y-2">
                 {pages.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="roll-host">
+                    <Link href={link.href} className="roll-host text-[18px]">
                       <Roll>{link.label}</Roll>
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
             <div>
-              <h4 className="font-light text-[16px] leading-[1.2] text-cream/50">Social</h4>
-              <ul className="mt-3 font-light text-[16px] leading-[1.5]">
+              <h3 className="text-[16px] text-bone/60">Follow</h3>
+              <ul className="mt-4 space-y-2">
                 {social.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} target="_blank" rel="noreferrer" className="roll-host">
+                    <a href={link.href} target="_blank" rel="noreferrer" className="roll-host text-[18px]">
                       <Roll>{link.label}</Roll>
                     </a>
                   </li>
@@ -86,23 +90,37 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-[70px] flex flex-col justify-between gap-2 text-[14px] sm:flex-row md:text-[16px]">
-          <p className="font-light">
-            © {site.legal} All rights reserved, {new Date().getFullYear()}
+        {/* Legal row */}
+        <div className="mt-20 flex flex-col justify-between gap-4 border-t border-line-light py-7 text-[16px] text-bone/70 sm:flex-row sm:items-center">
+          <p>
+            © {new Date().getFullYear()} {site.legal}
           </p>
-          <p>London · Edinburgh · Melbourne</p>
+          <button
+            type="button"
+            onClick={() => (lenis ? lenis.scrollTo(0) : window.scrollTo({ top: 0, behavior: "smooth" }))}
+            className="roll-host w-fit text-bone"
+          >
+            <Roll>
+              Back to top
+              <ArrowDown className="rotate-180" />
+            </Roll>
+          </button>
         </div>
       </div>
 
-      <div aria-hidden className="mt-10 flex justify-center whitespace-nowrap text-cream opacity-15">
+      {/* The name across the full width, rising letter by letter. */}
+      <div
+        aria-hidden
+        className="flex justify-center pt-6 font-ex text-[14.2vw] leading-[0.8] whitespace-nowrap text-bone/[0.09]"
+      >
         {site.name.toUpperCase().split("").map((letter, index) => (
-          <span key={`${letter}-${index}`} className="inline-block overflow-hidden align-bottom leading-none">
+          <span key={`${letter}-${index}`} className="block overflow-hidden pb-[0.02em]">
             <motion.span
-              className="inline-block text-[18.6vw] leading-[0.756]"
-              initial={{ y: "100%", opacity: 0 }}
-              whileInView={{ y: "0%", opacity: 1 }}
+              className="block"
+              initial={{ y: "100%" }}
+              whileInView={{ y: "0%" }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1.1, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1.1, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
             >
               {letter}
             </motion.span>

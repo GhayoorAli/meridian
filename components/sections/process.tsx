@@ -3,7 +3,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Photo } from "@/components/photo";
-import { Separator, SplitTitle, Unmask } from "@/components/ui";
+import { Eyebrow, SplitTitle, Unmask } from "@/components/ui";
 import { process } from "@/data/site";
 
 function Step({ step }: { step: (typeof process)[number] }) {
@@ -27,7 +27,7 @@ function Step({ step }: { step: (typeof process)[number] }) {
         <Unmask className="zoom aspect-[345/330] bg-ink/10">
           <Photo src={step.image} alt="" fill />
         </Unmask>
-        <p className="text-justify font-light text-[16px] leading-[1.4]">{step.copy}</p>
+        <p className="text-justify text-[18px] leading-[1.4]">{step.copy}</p>
       </div>
     </article>
   );
@@ -62,8 +62,8 @@ export function Process() {
       >
         <div className="sticky top-0 flex h-svh flex-col justify-center overflow-hidden py-[40px]">
           <div className="gutter">
-            <Separator flip />
-            <SplitTitle left="Our" right="Process" className="mt-2" />
+            <Eyebrow>From first meeting to handover</Eyebrow>
+            <SplitTitle left="Our" right="Process" className="mt-6" />
           </div>
           <motion.div ref={track} style={{ x }} className="mt-16 flex w-max pl-10">
             {process.map((step) => (
@@ -76,7 +76,8 @@ export function Process() {
 
       {/* Mobile: a plain stack. */}
       <section className="gutter py-[60px] md:hidden">
-        <SplitTitle left="Our" right="Process" />
+        <Eyebrow>From first meeting to handover</Eyebrow>
+        <SplitTitle left="Our" right="Process" className="mt-6" />
         <div className="mt-12 space-y-14">
           {process.map((step) => (
             <Step key={step.index} step={step} />
