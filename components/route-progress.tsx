@@ -7,9 +7,11 @@ export function RouteProgress() {
   const pathname = usePathname();
   const [active, setActive] = useState(false);
 
-  useEffect(() => {
+  const [shownPath, setShownPath] = useState(pathname);
+  if (shownPath !== pathname) {
+    setShownPath(pathname);
     setActive(false);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
@@ -31,8 +33,8 @@ export function RouteProgress() {
   if (!active) return null;
 
   return (
-    <div className="fixed top-0 left-0 z-[100] h-[2px] w-full bg-line">
-      <div className="h-full w-2/3 origin-left animate-pulse bg-signal" />
+    <div className="fixed top-0 left-0 z-[100] h-[2px] w-full bg-transparent">
+      <div className="h-full w-2/3 origin-left animate-pulse bg-ink" />
     </div>
   );
 }

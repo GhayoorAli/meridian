@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowDownRight, Roll } from "@/components/ui";
 
 const fields = [
-  { name: "name", label: "Your name", type: "text" },
+  { name: "name", label: "Name", type: "text" },
   { name: "email", label: "Email", type: "email" },
   { name: "site", label: "Site or city", type: "text" },
 ];
@@ -13,42 +14,37 @@ export function ContactForm() {
 
   return (
     <form
-      className="space-y-8"
+      className="space-y-10"
       onSubmit={(event) => {
         event.preventDefault();
         setSent(true);
       }}
     >
       {fields.map((field) => (
-        <label key={field.name} className="group block">
-          <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-mist transition-colors group-focus-within:text-signal">
-            {field.label}
-          </span>
+        <label key={field.name} className="block">
+          <span className="font-light text-[16px]">{field.label}</span>
           <input
             required
             name={field.name}
             type={field.type}
-            className="mt-3 w-full border-b border-line bg-transparent py-3 font-serif text-xl outline-none transition-colors focus:border-signal"
+            className="mt-2 w-full border-b border-line bg-transparent py-2 text-[18px] outline-none transition-colors focus:border-ink"
           />
         </label>
       ))}
-      <label className="group block">
-        <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-mist transition-colors group-focus-within:text-signal">
-          The brief
-        </span>
+      <label className="block">
+        <span className="font-light text-[16px]">The brief</span>
         <textarea
           required
           name="brief"
-          rows={5}
-          className="mt-3 w-full resize-none border-b border-line bg-transparent py-3 font-serif text-xl outline-none transition-colors focus:border-signal"
+          rows={4}
+          className="mt-2 w-full resize-none border-b border-line bg-transparent py-2 text-[18px] outline-none transition-colors focus:border-ink"
         />
       </label>
-      <button
-        type="submit"
-        className="halo-btn rounded-full bg-signal px-8 py-4 font-mono text-[11px] tracking-[0.24em] uppercase text-ink"
-        data-cursor="Send"
-      >
-        {sent ? "Received — we will write back" : "Send the brief"}
+      <button type="submit" className="roll-host inline-flex items-center gap-2 text-[18px]">
+        <Roll>
+          {sent ? "Received — we will write back" : "Send"}
+          <ArrowDownRight />
+        </Roll>
       </button>
     </form>
   );

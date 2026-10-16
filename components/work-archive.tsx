@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Photo } from "@/components/photo";
+import { ProjectCard } from "@/components/sections/works";
 import { projectTypes, projects } from "@/data/projects";
-import { formatIndex } from "@/lib/utils";
+import { cn, formatIndex } from "@/lib/utils";
 
 export function WorkArchive() {
   const [type, setType] = useState<(typeof projectTypes)[number]>("All");
@@ -14,53 +13,43 @@ export function WorkArchive() {
   );
 
   return (
-    <>
-      <div className="mt-12 flex flex-wrap gap-2">
-        {projectTypes.map((item) => (
-          <button
-            key={item}
-            type="button"
-            onClick={() => setType(item)}
-            className={`rounded-full border px-4 py-2 font-mono text-[11px] tracking-[0.2em] uppercase transition-colors ${
-              type === item
-                ? "border-signal bg-signal text-ink"
-                : "border-line text-mist hover:border-paper hover:text-paper"
-            }`}
-          >
-            {item}
-          </button>
+    <div className="mt-12 grid gap-10 md:grid-cols-[158px_1fr] md:gap-10">
+      <ul className="flex flex-wrap gap-x-6 gap-y-2 text-[18px] md:sticky md:top-[130px] md:flex-col md:self-start md:gap-y-3">
+        {projectTypes.map((item, index) => (
+          <li key={item}>
+            <button
+              type="button"
+              onClick={() => setType(item)}
+              className={cn(
+                "flex items-baseline gap-1.5 transition-colors duration-300",
+                type === item ? "text-ink" : "text-ink/35 hover:text-ink",
+              )}
+            >
+              <span className="font-serif">{formatIndex(index)}</span>
+              {item}
+            </button>
+          </li>
         ))}
-      </div>
-      <div className="mt-14 grid gap-8 md:grid-cols-2">
-        {filtered.map((project, index) => (
-          <Link
-            key={project.slug}
-            href={`/work/${project.slug}`}
-            prefetch
-            className={`group ${index % 3 === 0 ? "md:mt-16" : ""}`}
-            data-cursor="Open"
-          >
-            <div className="clip-reveal img-zoom relative aspect-[5/4] overflow-hidden bg-ink-soft">
-              <Photo src={project.image} alt={project.title} width={800} fill />
-              <div className="absolute inset-x-0 bottom-0 flex justify-between p-5 font-mono text-[11px] tracking-[0.18em] uppercase text-paper">
-                <span>{formatIndex(index + 1)}</span>
-                <span>{project.year}</span>
-              </div>
+      </ul>
+
+      <div className="space-y-[100px]">
+        {filtered.map((project, index) => {
+          const position = index % 3;
+          if (position === 0) {
+            return <ProjectCard key={project.slug} project={project} aspect="aspect-[4/3] md:aspect-[1162/620]" />;
+          }
+          if (position === 2) return null;
+          const partner = filtered[index + 1];
+          return (
+            <div key={project.slug} className="grid gap-[100px] md:grid-cols-2 md:gap-[92px]">
+              <ProjectCard project={project} aspect="aspect-[535/660]" />
+              {partner ? (
+                <ProjectCard project={partner} aspect="aspect-[535/470]" className="md:mt-[130px]" />
+              ) : null}
             </div>
-            <div className="mt-5 flex items-start justify-between gap-4">
-              <div>
-                <h2 className="font-display text-3xl tracking-tight transition-colors duration-300 group-hover:text-signal">
-                  {project.title}
-                </h2>
-                <p className="mt-2 font-serif text-paper-dim">{project.subtitle}</p>
-              </div>
-              <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-mist">
-                {project.type}
-              </p>
-            </div>
-          </Link>
-        ))}
+          );
+        })}
       </div>
-    </>
+    </div>
   );
 }

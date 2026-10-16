@@ -1,21 +1,22 @@
-import Link from "next/link";
+import { ArrowLink, Paren } from "@/components/ui";
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-screen flex-col justify-end px-5 pt-32 pb-16 md:px-8">
-      <p className="font-mono text-[11px] tracking-[0.28em] uppercase text-signal">404</p>
-      <h1 className="mt-4 font-display text-6xl tracking-tight md:text-8xl">
-        This sheet was never drawn
-      </h1>
-      <p className="mt-6 max-w-lg font-serif text-2xl text-paper-dim">
-        The page is missing, or the coastline moved. Return to the archive.
-      </p>
-      <Link
-        href="/"
-        className="mt-10 w-fit rounded-full border border-paper/30 px-6 py-3 font-mono text-[11px] tracking-[0.22em] uppercase"
-      >
-        Back to Meridian
-      </Link>
+    <main className="gutter flex min-h-svh flex-col justify-between pt-[140px] pb-10">
+      <Paren className="text-[21px]">404</Paren>
+      <div>
+        <h1 className="font-ex text-[clamp(40px,5vw,72px)] leading-none uppercase">
+          This sheet was
+          <br />
+          never drawn
+        </h1>
+        <div className="mt-8 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <p className="max-w-[340px] text-justify font-light text-[16px] leading-[1.4]">
+            The page is missing, or the coastline moved. Return to the start.
+          </p>
+          <ArrowLink href="/">Back to Meridian</ArrowLink>
+        </div>
+      </div>
     </main>
   );
 }

@@ -2,67 +2,66 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { projects } from "@/data/projects";
+import { site } from "@/data/site";
 
 const STORAGE_KEY = "meridian-ready";
 
+/** First-visit intro: the wordmark, filled with a project photograph, before the page lifts away. */
 export function Preloader() {
   const [visible, setVisible] = useState(false);
-  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (sessionStorage.getItem(STORAGE_KEY)) return;
-
-    setVisible(true);
-    const started = performance.now();
-    let frame = 0;
-
-    const tick = (now: number) => {
-      const progress = Math.min(100, Math.floor(((now - started) / 700) * 100));
-      setCount(progress);
-      if (progress < 100) {
-        frame = requestAnimationFrame(tick);
-      } else {
-        sessionStorage.setItem(STORAGE_KEY, "1");
-        window.setTimeout(() => setVisible(false), 160);
-      }
+    try {
+      if (sessionStorage.getItem(STORAGE_KEY)) return;
+      sessionStorage.setItem(STORAGE_KEY, "1");
+    } catch {
+      return;
+    }
+    const show = window.setTimeout(() => setVisible(true), 0);
+    const hide = window.setTimeout(() => setVisible(false), 2200);
+    return () => {
+      window.clearTimeout(show);
+      window.clearTimeout(hide);
     };
-
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
   }, []);
 
   return (
     <AnimatePresence>
       {visible ? (
         <motion.div
-          className="fixed inset-0 z-[90] flex flex-col justify-between bg-ink px-6 py-6 text-paper md:px-10"
-          exit={{ y: "-100%" }}
-          transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+          className="fixed inset-0 z-[90] grid place-items-center bg-ink"
+          exit={{ clipPath: "inset(0 0 100% 0)" }}
+          transition={{ duration: 0.9, ease: [0.65, 0, 0.35, 1] }}
         >
-          <div className="flex items-start justify-between font-mono text-[11px] tracking-[0.28em] uppercase text-mist">
-            <span>Meridian / 00</span>
-            <span>London · Edinburgh · Melbourne</span>
-          </div>
-          <div className="flex items-end justify-between gap-8">
-            <div>
-              <p className="font-mono text-[11px] tracking-[0.28em] uppercase text-signal">
-                Calibrating
-              </p>
-              <p className="mt-3 max-w-sm font-serif text-2xl leading-snug text-paper/90 md:text-3xl">
-                Spatial research for a warming planet.
-              </p>
-            </div>
-            <p className="font-display text-[18vw] leading-none tracking-tight tabular-nums">
-              {String(count).padStart(2, "0")}
+          <div className="relative font-ex text-[16vw] leading-none uppercase md:text-[9vw]" aria-label={site.name}>
+            <p aria-hidden className="flex text-cream/20">
+              {site.name.split("").map((letter, index) => (
+                <span key={`${letter}-${index}`} className="block overflow-hidden">
+                  <motion.span
+                    className="block"
+                    initial={{ y: "100%" }}
+                    animate={{ y: "0%" }}
+                    transition={{ duration: 0.9, delay: 0.1 + index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    {letter}
+                  </motion.span>
+                </span>
+              ))}
             </p>
-          </div>
-          <div className="h-px w-full bg-line">
-            <motion.div
-              className="h-px bg-signal"
-              initial={{ width: "0%" }}
-              animate={{ width: `${count}%` }}
-              transition={{ duration: 0.1, ease: "linear" }}
-            />
+            <motion.p
+              aria-hidden
+              className="absolute inset-0 bg-cover bg-clip-text text-transparent"
+              style={{ backgroundImage: `url(${projects[0].image})` }}
+              initial={{ opacity: 0, backgroundPosition: "50% 90%" }}
+              animate={{ opacity: 0.9, backgroundPosition: "50% 30%" }}
+              transition={{
+                opacity: { duration: 0.8, delay: 0.9 },
+                backgroundPosition: { duration: 2, ease: [0.22, 1, 0.36, 1] },
+              }}
+            >
+              {site.name}
+            </motion.p>
           </div>
         </motion.div>
       ) : null}
