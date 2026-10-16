@@ -14,7 +14,7 @@ export function WorkArchive() {
 
   return (
     <div className="mt-12 grid gap-10 md:grid-cols-[158px_1fr] md:gap-10">
-      <ul className="flex flex-wrap gap-x-6 gap-y-2 text-[20px] md:sticky md:top-[130px] md:flex-col md:self-start md:gap-y-3">
+      <ul className="flex flex-wrap gap-x-6 gap-y-2 text-[1.25rem] md:sticky md:top-[130px] md:flex-col md:self-start md:gap-y-3">
         {projectTypes.map((item, index) => (
           <li key={item}>
             <button
@@ -41,10 +41,10 @@ export function WorkArchive() {
           if (position === 2) return null;
           const partner = filtered[index + 1];
           return (
-            <div key={project.slug} className="grid gap-[100px] md:grid-cols-2 md:gap-[92px]">
+            <div key={project.slug} className="grid gap-[6.25rem] md:grid-cols-2 md:gap-[5.75rem]">
               <ProjectCard project={project} aspect="aspect-[535/660]" />
               {partner ? (
-                <ProjectCard project={partner} aspect="aspect-[535/470]" className="md:mt-[130px]" />
+                <ProjectCard project={partner} aspect="aspect-[535/470]" className="md:mt-[8.125rem]" />
               ) : null}
             </div>
           );

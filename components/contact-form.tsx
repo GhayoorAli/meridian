@@ -22,25 +22,25 @@ export function ContactForm() {
     >
       {fields.map((field) => (
         <label key={field.name} className="block">
-          <span className="text-[18px]">{field.label}</span>
+          <span className="text-[1.125rem]">{field.label}</span>
           <input
             required
             name={field.name}
             type={field.type}
-            className="mt-2 w-full border-b border-line bg-transparent py-2 text-[20px] outline-none transition-colors focus:border-ink"
+            className="mt-2 w-full border-b border-line bg-transparent py-2 text-[1.25rem] outline-none transition-colors focus:border-ink"
           />
         </label>
       ))}
       <label className="block">
-        <span className="text-[18px]">The brief</span>
+        <span className="text-[1.125rem]">The brief</span>
         <textarea
           required
           name="brief"
           rows={4}
-          className="mt-2 w-full resize-none border-b border-line bg-transparent py-2 text-[20px] outline-none transition-colors focus:border-ink"
+          className="mt-2 w-full resize-none border-b border-line bg-transparent py-2 text-[1.25rem] outline-none transition-colors focus:border-ink"
         />
       </label>
-      <button type="submit" className="roll-host inline-flex items-center gap-2 text-[20px]">
+      <button type="submit" className="roll-host inline-flex items-center gap-2 text-[1.25rem]">
         <Roll>
           {sent ? "Received — we will write back" : "Send"}
           <ArrowDownRight />

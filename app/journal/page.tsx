@@ -9,11 +9,11 @@ export const metadata = {
 
 export default function JournalPage() {
   return (
-    <main className="gutter pt-[120px] pb-[120px]">
+    <main className="gutter pt-[7.5rem] pb-[7.5rem]">
       <SplitTitle as="h1" left="The" right="Journal" />
       <div className="mt-14 border-t border-line" />
 
-      <div className="mt-[90px]">
+      <div className="mt-[5.625rem]">
         <JournalList articles={articles} />
       </div>
     </main>

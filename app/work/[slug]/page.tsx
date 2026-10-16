@@ -23,7 +23,7 @@ export async function generateMetadata({
 }
 
 function Corners() {
-  const mark = "absolute text-[20px] leading-none";
+  const mark = "absolute text-[1.25rem] leading-none";
   return (
     <>
       <span className={`${mark} -top-3 -left-3`}>+</span>
@@ -61,10 +61,10 @@ export default async function ProjectPage({
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="gutter relative flex h-svh flex-col justify-end pt-[110px] pb-8">
+        <div className="gutter relative flex h-svh flex-col justify-end pt-[6.875rem] pb-8">
           <div>
-            <h1 className="font-ex text-[clamp(44px,5vw,72px)] leading-none uppercase">{project.title}</h1>
-            <div className="mt-6 grid grid-cols-3 text-[16px] md:text-[18px]">
+            <h1 className="font-ex text-[clamp(2.75rem,5vw,4.5rem)] leading-none uppercase">{project.title}</h1>
+            <div className="mt-6 grid grid-cols-3 text-[1rem] md:text-[1.125rem]">
               <span>
                 {project.location}, {project.country}
               </span>
@@ -75,11 +75,11 @@ export default async function ProjectPage({
         </div>
 
         <div className="gutter relative pt-[30vh] pb-[20vh]">
-          <dl className="ml-auto max-w-[680px] space-y-14">
+          <dl className="ml-auto max-w-[42.5rem] space-y-14">
             {facts.map(([label, value]) => (
               <FadeIn key={label}>
-                <dt className="border-b border-white/60 pb-3 text-[18px]">{label}</dt>
-                <dd className="mt-6 ml-auto max-w-[400px] text-justify text-[18px] leading-[1.4]">
+                <dt className="border-b border-white/60 pb-3 text-[1.125rem]">{label}</dt>
+                <dd className="mt-6 ml-auto max-w-[25rem] text-justify text-[1.125rem] leading-[1.4]">
                   {value}
                 </dd>
               </FadeIn>
@@ -88,7 +88,7 @@ export default async function ProjectPage({
         </div>
       </section>
 
-      <section className="gutter grid gap-16 py-[100px] md:grid-cols-2">
+      <section className="gutter grid gap-16 py-[6.25rem] md:grid-cols-2">
         <div className="space-y-6">
           <Unmask className="zoom aspect-[580/490]">
             <Photo src={rest[0]} alt="" fill />
@@ -102,7 +102,7 @@ export default async function ProjectPage({
           </div>
         </div>
         <div className="flex flex-col justify-between gap-16">
-          <FadeIn className="ml-auto max-w-[380px] space-y-6 text-justify text-[18px] leading-[1.4]">
+          <FadeIn className="ml-auto max-w-[23.75rem] space-y-6 text-justify text-[1.125rem] leading-[1.4]">
             <p>{project.challenge}</p>
             <p>{project.approach}</p>
           </FadeIn>
@@ -115,9 +115,9 @@ export default async function ProjectPage({
         </div>
       </section>
 
-      <section className="gutter grid gap-12 border-t border-line py-[80px] md:grid-cols-2">
-        <p className="max-w-[460px] text-justify text-[18px] leading-[1.4]">{project.outcome}</p>
-        <ul className="grid grid-cols-2 gap-x-10 gap-y-6 text-[18px]">
+      <section className="gutter grid gap-12 border-t border-line py-[5rem] md:grid-cols-2">
+        <p className="max-w-[28.75rem] text-justify text-[1.125rem] leading-[1.4]">{project.outcome}</p>
+        <ul className="grid grid-cols-2 gap-x-10 gap-y-6 text-[1.125rem]">
           {project.credits.map((credit) => (
             <li key={credit.role}>
               <p className="text-stone">{credit.role}</p>
@@ -127,8 +127,8 @@ export default async function ProjectPage({
         </ul>
       </section>
 
-      <Link href={`/work/${next.slug}`} className="roll-host gutter block border-t border-line pt-10 pb-[100px]">
-        <span className="mb-8 inline-flex text-[18px]">
+      <Link href={`/work/${next.slug}`} className="roll-host gutter block border-t border-line pt-10 pb-[6.25rem]">
+        <span className="mb-8 inline-flex text-[1.125rem]">
           <Roll>Next project</Roll>
         </span>
         <SplitTitle left={next.title} />

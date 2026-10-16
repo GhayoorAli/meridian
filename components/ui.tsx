@@ -47,7 +47,7 @@ export function ArrowLink({
   className?: string;
 }) {
   return (
-    <Link href={href} className={cn("roll-host inline-flex text-[18px]", className)}>
+    <Link href={href} className={cn("roll-host inline-flex text-[1.125rem]", className)}>
       <Roll>
         {children}
         <ArrowDownRight />
@@ -80,7 +80,7 @@ export function Button({
       href={href}
       className={cn(
         "roll-host inline-flex items-center justify-center transition-colors duration-300",
-        size === "sm" ? "h-11 px-5 text-[16px]" : "h-14 px-7 text-[18px]",
+        size === "sm" ? "h-11 px-5 text-[1rem]" : "h-14 px-7 text-[1.125rem]",
         tones[tone],
         className,
       )}
@@ -106,7 +106,7 @@ export function Eyebrow({
   return (
     <p
       className={cn(
-        "flex items-center gap-3 text-[16px] tracking-[0.02em]",
+        "flex items-center gap-3 text-[1rem] tracking-[0.02em]",
         tone === "light" ? "text-bone/80" : "text-stone",
         className,
       )}
@@ -142,7 +142,7 @@ export function SplitTitle({
     <Tag
       ref={ref}
       className={cn(
-        "flex flex-col gap-1 font-ex text-[clamp(32px,5vw,72px)] leading-none uppercase sm:flex-row sm:justify-between sm:gap-6",
+        "flex flex-col gap-1 font-ex text-[clamp(2rem,5vw,4.5rem)] leading-none uppercase sm:flex-row sm:justify-between sm:gap-6",
         className,
       )}
     >

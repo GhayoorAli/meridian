@@ -29,7 +29,7 @@ function useSequenceMode(enabled: boolean) {
 function TypeLines({ tags }: { tags: string[] }) {
   const words = tags.flatMap((tag) => tag.split(" "));
   return (
-    <span className="flex flex-col text-[20px] leading-[0.87] uppercase">
+    <span className="flex flex-col text-[1.25rem] leading-[0.87] uppercase">
       {words.map((word, index) => (
         <span key={`${word}-${index}`}>{word}</span>
       ))}
@@ -128,7 +128,7 @@ function DesktopRow({
       <div className="journal-track flex gap-10">
         <div ref={before} className="journal-before relative min-w-0 flex-1 overflow-hidden">
           <div ref={type} className="journal-type absolute top-0 flex items-start gap-2.5">
-            <span className="font-serif text-[20px] leading-[0.87]">{formatIndex(index + 1)}</span>
+            <span className="font-serif text-[1.25rem] leading-[0.87]">{formatIndex(index + 1)}</span>
             <TypeLines tags={article.tags} />
           </div>
           <div
@@ -137,8 +137,8 @@ function DesktopRow({
             inert={!open}
             aria-hidden={!open}
           >
-            <p className="w-[340px] text-justify text-[16px] leading-[1.4]">{article.body[0]}</p>
-            <div className="mt-[82px] self-end">
+            <p className="w-[340px] text-justify text-[1rem] leading-[1.4]">{article.body[0]}</p>
+            <div className="mt-[5.125rem] self-end">
               <ArrowLink href={`/journal/${article.slug}`}>Read the full essay</ArrowLink>
             </div>
           </div>
@@ -150,13 +150,13 @@ function DesktopRow({
 
         <div ref={after} className="journal-after flex min-w-0 flex-1 gap-20">
           <div className="flex w-[300px] shrink-0 flex-col">
-            <div className="flex max-w-[200px] flex-col">
-              <span className="text-[20px] leading-[0.87]">{article.title}</span>
-              <span className="mt-1.5 text-[16px] leading-[1.4]">{article.author}</span>
-              <span className="text-[16px] leading-[1.4]">{article.date}</span>
+            <div className="flex max-w-[12.5rem] flex-col">
+              <span className="text-[1.25rem] leading-[0.87]">{article.title}</span>
+              <span className="mt-1.5 text-[1rem] leading-[1.4]">{article.author}</span>
+              <span className="text-[1rem] leading-[1.4]">{article.date}</span>
             </div>
             <div ref={description} className="journal-slide mt-16" inert={!open} aria-hidden={!open}>
-              <p className="w-[300px] text-justify text-[16px] leading-[1.4]">{article.dek}</p>
+              <p className="w-[300px] text-justify text-[1rem] leading-[1.4]">{article.dek}</p>
             </div>
           </div>
           <div
@@ -205,10 +205,10 @@ function MobileRow({
       </div>
       <div className="mt-4 flex items-start justify-between gap-6">
         <div className="flex items-start gap-2">
-          <span className="font-serif text-[20px] leading-[0.87]">{formatIndex(index + 1)}</span>
+          <span className="font-serif text-[1.25rem] leading-[0.87]">{formatIndex(index + 1)}</span>
           <TypeLines tags={article.tags} />
         </div>
-        <div className="flex max-w-[180px] flex-col text-right text-[16px]">
+        <div className="flex max-w-[11.25rem] flex-col text-right text-[1rem]">
           <span>{article.title}</span>
           <span>{article.author}</span>
           <span>{article.date}</span>
@@ -217,7 +217,7 @@ function MobileRow({
       <div className="journal-fold grid" inert={!open} aria-hidden={!open}>
         <div className="overflow-hidden">
           <div className="journal-fold-item">
-            <p className="mt-10 text-justify text-[16px] leading-[1.4]">{article.body[0]}</p>
+            <p className="mt-10 text-justify text-[1rem] leading-[1.4]">{article.body[0]}</p>
             <div className="mt-6 flex justify-end">
               <ArrowLink href={`/journal/${article.slug}`}>Read the full essay</ArrowLink>
             </div>
@@ -229,7 +229,7 @@ function MobileRow({
               </div>
             ))}
           </div>
-          <p className="journal-fold-item mt-6 mb-4 text-justify text-[16px] leading-[1.4]">
+          <p className="journal-fold-item mt-6 mb-4 text-justify text-[1rem] leading-[1.4]">
             {article.dek}
           </p>
         </div>

@@ -36,7 +36,13 @@
   box-sizing: border-box;
 }
 
+/*
+ * Type and spacing are set in rem, so this one value scales the whole page. It holds at 16px
+ * up to a 1440px-wide window, then grows gently so large monitors do not shrink the text
+ * relative to the layout (about 19px at 1920px, capped at 22px).
+ */
 html {
+  font-size: clamp(16px, calc(16px + (100vw - 1440px) * 0.006), 22px);
   background: var(--color-bone);
   color: var(--color-ink);
 }
@@ -59,7 +65,7 @@ body {
   background: var(--color-bone);
   color: var(--color-ink);
   font-family: var(--font-archivo), system-ui, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
   overflow-x: hidden;
 }
